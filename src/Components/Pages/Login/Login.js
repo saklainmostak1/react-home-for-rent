@@ -11,11 +11,11 @@ const Login = () => {
         <div className='mt-10'>
             <div className='grid justify-center '>
                 <img
-                    className='w-96'
+                    className=''
                     src=''
                     alt="" />
                 <h2 className='text-center text-3xl text-orange-600 font-bold'>
-                    Welcome
+                    Welcome <br />
                     <span className='ml-2' style={{ color: 'green', fontWeight: 'bold' }}>
                         <Typewriter
                             words={['To Our Website']}
