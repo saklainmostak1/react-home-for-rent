@@ -5,6 +5,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Blog from "../Pages/Blog/Blog";
 import ContactMessage from "../Pages/ContactMessage/ContactMessage";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 
 export const router = createBrowserRouter([
     {
@@ -30,7 +31,11 @@ export const router = createBrowserRouter([
             {
                 path: '/contactMessage',
                 element: <ContactMessage></ContactMessage>
-            }
+            },
+            {
+                path: '/about-us',
+                element: <AboutUs></AboutUs>
+            },
         ]
     }
 ])

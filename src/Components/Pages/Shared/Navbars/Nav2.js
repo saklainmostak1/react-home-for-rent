@@ -36,6 +36,14 @@ const Nav2 = () => {
                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                     to='/'
                   >
+                   <span className="md:ml-96 lg:ml-2 ">Home</span>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                    to='/'
+                  >
                    <span className="md:ml-96 lg:ml-2 ">All Services</span>
                   </Link>
                 </li>
@@ -53,6 +61,14 @@ const Nav2 = () => {
                     to='/blog'
                   >
                     <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span className="md:ml-96 lg:ml-2">Blog</span>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                    to='/about-us'
+                  >
+                    <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span className="md:ml-96 lg:ml-2">About Us</span>
                   </Link>
                 </li>
                 <li className="nav-item">
