@@ -3,7 +3,8 @@ import img7 from '../../ReviewSection/AddReview/contact1.png'
 
 const AddReviews = () => {
     return (
-        <div className='m-20'>
+     <div className='m-5'>
+           <div className=' container mx-auto'>
             <h2 className="text-4xl text-center mb-10">Add A Review 
             </h2>
             <div className='lg:flex'>
@@ -34,6 +35,7 @@ const AddReviews = () => {
 
 
         </div>
+     </div>
 
     );
 };
