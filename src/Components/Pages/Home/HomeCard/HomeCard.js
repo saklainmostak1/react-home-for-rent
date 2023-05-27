@@ -12,7 +12,7 @@ const HomeCard = () => {
     const [home, setHome]  = useState([])
 
         useEffect(() => {
-        fetch(`http://localhost:5000/allHome`)
+        fetch(`http://localhost:5001/allHome`)
             .then(Response => Response.json())
             .then(data => setHome(data))
     }, [])

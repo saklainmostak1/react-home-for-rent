@@ -1,21 +1,12 @@
 
 import React, { useEffect, useState } from 'react';
-import { Link,  } from 'react-router-dom';
+import { Link, Outlet, } from 'react-router-dom';
+import CategoryOne from './CategoryOne';
+import CategoryTwo from './CategoryTwo';
 
 const CategoryCard = () => {
 
 
-
-    
-    const [categories, setCategories] = useState([])
-
-
-    useEffect(() => {
-        fetch('http://localhost:5000/category')
-            .then(Response => Response.json())
-            .then(data => setCategories(data))
-    }, [])
-    console.log(categories);
 
 
 
@@ -29,10 +20,18 @@ const CategoryCard = () => {
 
 
     return (
-        <div>
-       
-        
-       </div>
+        <div className='lg:flex container mx-auto'>
+            <div className='lg:w-[20%] mt-5'>
+                <CategoryOne></CategoryOne>
+
+            </div>
+            <Outlet></Outlet>
+            <div className='lg:w-[80%]'>
+
+                <CategoryTwo></CategoryTwo>
+            </div>
+
+        </div>
     );
 };
 

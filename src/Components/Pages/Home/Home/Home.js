@@ -15,8 +15,8 @@ const Home = () => {
             <DemoHome></DemoHome>
             <HomeSlider></HomeSlider>
             <HomeSearchBar ></HomeSearchBar>
-            <CategoryCard></CategoryCard>
             <HomeCard></HomeCard>
+            <CategoryCard></CategoryCard>
             <ShowReview></ShowReview>
             <AddReviews></AddReviews>
         </div>

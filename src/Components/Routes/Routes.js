@@ -8,6 +8,7 @@ import ContactMessage from "../Pages/ContactMessage/ContactMessage";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import HomeCard from "../Pages/Home/HomeCard/HomeCard";
 import AllServices from "../Pages/Home/AllServices/AllServices";
+import CategoryTwo from "../Pages/Home/CategoryCard/CategoryTwo";
 
 export const router = createBrowserRouter([
     {
@@ -42,12 +43,7 @@ export const router = createBrowserRouter([
                 path: '/all-services',
                 element: <AllServices></AllServices>
             },
-            {
-                path: '/allHome/:id',
-                element: <HomeCard></HomeCard>,
-                loader: ({params}) => fetch(`http://localhost:5000/allHome/${params.id}`)
-                
-             },
+          
         ]
     }
 ])

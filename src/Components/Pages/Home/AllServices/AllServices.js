@@ -14,7 +14,7 @@ const AllServices = () => {
     const [homes, setHomes] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allHome`)
+        fetch(`http://localhost:5001/allHome`)
             .then(Response => Response.json())
             .then(data => setHomes(data))
     }, [])
