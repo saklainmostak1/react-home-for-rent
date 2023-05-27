@@ -4,7 +4,7 @@ import { HiPhone } from "react-icons/hi2";
 import { IoIosAlarm, IoIosGlobe, IoIosArrowDown } from "react-icons/io";
 const Nav1 = () => {
     return (
-        <div className='container mx-auto  mt-4 mb-4'>
+        <div className='container mx-auto  mt-4 mb-4 text-[#15396D] font-bold'>
             <div className='hidden lg:block'>
 
                 <div className='flex justify-between'>

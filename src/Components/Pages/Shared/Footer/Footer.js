@@ -30,21 +30,20 @@ const Footer = () => {
                <Link to='' className="link link-hover">Cookie policy</Link>
             </div>
             <div className=' '>
-            <span className="footer-title">Follow Us On</span>
-            <div className='flex gap-3'>
-               <FaFacebook></FaFacebook>
-               <FaInstagram></FaInstagram>
-               <FaLinkedin></FaLinkedin>
-               <FaTwitter></FaTwitter>
-               <FaWhatsapp></FaWhatsapp>
+               <span className="footer-title">Follow Us On</span>
+               <div className='flex gap-3'>
+                  <FaFacebook></FaFacebook>
+                  <FaInstagram></FaInstagram>
+                  <FaLinkedin></FaLinkedin>
+                  <FaTwitter></FaTwitter>
+                  <FaWhatsapp></FaWhatsapp>
+               </div>
             </div>
-            </div>
-
          </footer>
-<div className='text-center text-blue-900'>
-   <p>P.O. Box 5090, Tyler, Texas 75712</p>
-   <p>©2023 Service - All Rights Reserved.</p>
-</div>
+         <div className='text-center text-[#15396D] font-bold'>
+            <p>P.O. Box 5090, Tyler, Texas 75712</p>
+            <p>©2023 Service - All Rights Reserved.</p>
+         </div>
       </div>
    );
 };

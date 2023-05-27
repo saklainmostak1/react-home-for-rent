@@ -6,6 +6,7 @@ import AddReviews from '../ReviewSection/AddReview/AddReviews';
 import ShowReview from '../ReviewSection/ShowReview/ShowReview';
 import HomeSlider from '../HomeSlider/HomeSlider';
 import DemoHome from '../SomeDemoHome/DemoHome';
+import CategoryCard from '../CategoryCard/CategoryCard';
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
             <DemoHome></DemoHome>
             <HomeSlider></HomeSlider>
             <HomeSearchBar ></HomeSearchBar>
+            <CategoryCard></CategoryCard>
             <HomeCard></HomeCard>
             <ShowReview></ShowReview>
             <AddReviews></AddReviews>

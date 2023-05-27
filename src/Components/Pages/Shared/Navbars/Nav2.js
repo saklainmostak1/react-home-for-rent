@@ -42,7 +42,7 @@ const Nav2 = () => {
                 <li className="nav-item">
                   <Link
                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                    to='/'
+                    to='/all-services'
                   >
                    <span className="md:ml-96 lg:ml-2 ">All Services</span>
                   </Link>

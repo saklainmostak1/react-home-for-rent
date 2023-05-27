@@ -6,6 +6,8 @@ import Register from "../Pages/Register/Register";
 import Blog from "../Pages/Blog/Blog";
 import ContactMessage from "../Pages/ContactMessage/ContactMessage";
 import AboutUs from "../Pages/AboutUs/AboutUs";
+import HomeCard from "../Pages/Home/HomeCard/HomeCard";
+import AllServices from "../Pages/Home/AllServices/AllServices";
 
 export const router = createBrowserRouter([
     {
@@ -36,6 +38,16 @@ export const router = createBrowserRouter([
                 path: '/about-us',
                 element: <AboutUs></AboutUs>
             },
+            {
+                path: '/all-services',
+                element: <AllServices></AllServices>
+            },
+            {
+                path: '/allHome/:id',
+                element: <HomeCard></HomeCard>,
+                loader: ({params}) => fetch(`http://localhost:5000/allHome/${params.id}`)
+                
+             },
         ]
     }
 ])
