@@ -7,6 +7,8 @@ import ShowReview from '../ReviewSection/ShowReview/ShowReview';
 import HomeSlider from '../HomeSlider/HomeSlider';
 import DemoHome from '../SomeDemoHome/DemoHome';
 import CategoryCard from '../CategoryCard/CategoryCard';
+import CategoryOne from '../CategoryCard/CategoryOne';
+
 
 const Home = () => {
     return (
@@ -16,7 +18,11 @@ const Home = () => {
             <HomeSlider></HomeSlider>
             <HomeSearchBar ></HomeSearchBar>
             <HomeCard></HomeCard>
-            <CategoryCard></CategoryCard>
+          
+            {/* <CategoryCard></CategoryCard> */}
+           <CategoryOne></CategoryOne>
+
+           
             <ShowReview></ShowReview>
             <AddReviews></AddReviews>
         </div>

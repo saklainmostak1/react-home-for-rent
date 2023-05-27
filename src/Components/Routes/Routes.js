@@ -6,9 +6,9 @@ import Register from "../Pages/Register/Register";
 import Blog from "../Pages/Blog/Blog";
 import ContactMessage from "../Pages/ContactMessage/ContactMessage";
 import AboutUs from "../Pages/AboutUs/AboutUs";
-import HomeCard from "../Pages/Home/HomeCard/HomeCard";
 import AllServices from "../Pages/Home/AllServices/AllServices";
 import CategoryTwo from "../Pages/Home/CategoryCard/CategoryTwo";
+import CategoryOne from "../Pages/Home/CategoryCard/CategoryOne";
 
 export const router = createBrowserRouter([
     {
@@ -42,6 +42,11 @@ export const router = createBrowserRouter([
             {
                 path: '/all-services',
                 element: <AllServices></AllServices>
+            },
+            {
+                path: '/category/:id',
+                element: <CategoryOne></CategoryOne>,
+                
             },
           
         ]

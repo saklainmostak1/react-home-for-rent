@@ -1,38 +1,46 @@
 
-import React, { useEffect, useState } from 'react';
-import { Link, Outlet, } from 'react-router-dom';
-import CategoryOne from './CategoryOne';
-import CategoryTwo from './CategoryTwo';
+// import React, { useEffect, useState } from 'react';
+// import { Link, Outlet, } from 'react-router-dom';
+// import CategoryOne from './CategoryOne';
+// import CategoryTwo from './CategoryTwo';
 
-const CategoryCard = () => {
-
-
+// const CategoryCard = () => {
 
 
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/category/${id}`)
-    //         .then(Response => Response.json())
-    //         .then(data => setCategories(data))
-    // }, [])
-    // console.log(categories);
+
+
+//     // useEffect(() => {
+//     //     fetch(`http://localhost:5000/category/${id}`)
+//     //         .then(Response => Response.json())
+//     //         .then(data => setCategories(data))
+//     // }, [])
+//     // console.log(categories);
 
 
 
-    return (
-        <div className='lg:flex container mx-auto'>
-            <div className='lg:w-[20%] mt-5'>
-                <CategoryOne></CategoryOne>
+//     return (
+//         <div className='lg:flex container mx-auto mt-10'>
 
-            </div>
-            <Outlet></Outlet>
-            <div className='lg:w-[80%]'>
 
-                <CategoryTwo></CategoryTwo>
-            </div>
 
-        </div>
-    );
-};
+//             <div className='lg:w-[20%] '>
+//                 <CategoryOne></CategoryOne>
+//             </div>
 
-export default CategoryCard;
+//             <div>
+//                 <Outlet></Outlet>
+//             </div>
+
+
+//             <div className='lg:w-[80%]'>
+//                 <CategoryTwo></CategoryTwo>
+//             </div>
+
+
+
+//         </div>
+//     );
+// };
+
+// export default CategoryCard;
