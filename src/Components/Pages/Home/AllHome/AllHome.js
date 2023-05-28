@@ -1,40 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { FaStar } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import { IoIosStar } from "react-icons/io";
-import img from '../../../img/download.jpg'
 
-const AllServices = () => {
+const AllHome = () => {
 
-
-
-    const [homes, setHomes] = useState([])
-
-    useEffect(() => {
-        fetch(`http://localhost:5001/allHome`)
-            .then(Response => Response.json())
-            .then(data => setHomes(data))
-    }, [])
-
-
-    console.log(homes);
-
-
+    const allHome = useLoaderData()
+    console.log(allHome);
     const [visible, setVisible] = useState(3)
 
     const showMoreProducts = () => {
         setVisible((preValue) => preValue + 3)
     }
+
     return (
         <div>
-
             <div className='mt-5'>
 
                 {
-                    homes.slice(0, visible).map(home =>
+                    allHome.slice(0, visible).map(home =>
 
                         <div className='max-w-[1200px] mx-auto  '>
                             <div className='lg:flex md:flex  gap-10 p-10'>
@@ -82,4 +65,4 @@ const AllServices = () => {
     );
 };
 
-export default AllServices;
+export default AllHome;

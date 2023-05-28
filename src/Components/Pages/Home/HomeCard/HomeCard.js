@@ -60,7 +60,7 @@ const HomeCard = () => {
         <div className='px-7 '>
             <h1 className=" text-2xl mt-5 container mx-auto">All Home</h1>
             <div className='container mx-auto '>
-                <div className=" grid  grid-cols-1 mt-5 ">
+                <div className=" grid  grid-cols-1  ">
                     <div className='flex justify-end'>
                         <Link to={'/all-services'} className='underline text-blue-600'>See All</Link>
                     </div>

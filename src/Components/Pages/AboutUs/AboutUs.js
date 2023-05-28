@@ -7,18 +7,19 @@ import img4 from '../../img/values_icon_04.png'
 import img5 from '../../img/values_icon_05.png'
 import img6 from '../../img/values_icon_06.png'
 import img8 from '../../img/about_img.png'
+import img9 from '../../img/about-us.webp'
 
 const AboutUs = () => {
     return (
         <div>
+            <div className='mt-[-12px]'>
+                <img src={img9} alt="" className='w-full h-96' />
+            </div>
             <div>
                 <h2 className='text-green-600 text-3xl font-semibold text-center mt-5'>HOME TO ALL YOUR PROPERTY NEEDS</h2>
             </div>
             <div>
                 <h4 className='text-lg font-semibold text-center mb-5'>BUY | SELL | RENT | LEGAL | MORTGAGE | INTERIOR</h4>
-            </div>
-            <div>
-                <img src={img} alt="" className='w-full h-96' />
             </div>
 
 

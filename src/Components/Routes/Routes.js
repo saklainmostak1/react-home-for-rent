@@ -7,8 +7,9 @@ import Blog from "../Pages/Blog/Blog";
 import ContactMessage from "../Pages/ContactMessage/ContactMessage";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import AllServices from "../Pages/Home/AllServices/AllServices";
-import CategoryTwo from "../Pages/Home/CategoryCard/CategoryTwo";
-import CategoryOne from "../Pages/Home/CategoryCard/CategoryOne";
+import AllHome from "../Pages/Home/AllHome/AllHome";
+import AllCateGories from "../Pages/Home/Categories/AllCateGories";
+
 
 export const router = createBrowserRouter([
     {
@@ -44,10 +45,13 @@ export const router = createBrowserRouter([
                 element: <AllServices></AllServices>
             },
             {
-                path: '/category/:id',
-                element: <CategoryOne></CategoryOne>,
+                path: '/allHome/:id',
+                element: <AllHome></AllHome>,
+                loader: ({params})  => fetch(`http://localhost:5001/category/${params.id}`)
                 
             },
+          
+            
           
         ]
     }

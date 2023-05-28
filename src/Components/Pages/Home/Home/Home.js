@@ -6,25 +6,33 @@ import AddReviews from '../ReviewSection/AddReview/AddReviews';
 import ShowReview from '../ReviewSection/ShowReview/ShowReview';
 import HomeSlider from '../HomeSlider/HomeSlider';
 import DemoHome from '../SomeDemoHome/DemoHome';
-import CategoryCard from '../CategoryCard/CategoryCard';
-import CategoryOne from '../CategoryCard/CategoryOne';
+import Category from '../Category/Category';
+import AllCateGories from '../Categories/AllCateGories';
+
+import CategoriesCard from '../Categories/CategoriesCard';
+
+
 
 
 const Home = () => {
     return (
         <div>
+   
+
             <HomeBanner></HomeBanner>
             <DemoHome></DemoHome>
             <HomeSlider></HomeSlider>
             <HomeSearchBar ></HomeSearchBar>
-            <HomeCard></HomeCard>
-          
-            {/* <CategoryCard></CategoryCard> */}
-           <CategoryOne></CategoryOne>
-
+            <Category></Category>
            
+
+            <AllCateGories></AllCateGories>
+         
+          
+            <HomeCard></HomeCard>
             <ShowReview></ShowReview>
             <AddReviews></AddReviews>
+        
         </div>
     );
 };
