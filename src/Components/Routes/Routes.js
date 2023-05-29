@@ -9,6 +9,8 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
 import AllServices from "../Pages/Home/AllServices/AllServices";
 import AllHome from "../Pages/Home/AllHome/AllHome";
 import AllCateGories from "../Pages/Home/Categories/AllCateGories";
+import AllHomeDetails from "../Pages/Home/AllHomeDetails/AllHomeDetails";
+import CheckOutPage from "../Pages/CheckOutPage/CheckOutPage";
 
 
 export const router = createBrowserRouter([
@@ -45,11 +47,21 @@ export const router = createBrowserRouter([
                 element: <AllServices></AllServices>
             },
             {
+                path: '/allHome/details/:id',
+                element: <AllHomeDetails></AllHomeDetails>
+            },
+            {
+                path: '/check-out-page/:id',
+                element: <CheckOutPage></CheckOutPage>
+            },
+           
+            {
                 path: '/allHome/:id',
                 element: <AllHome></AllHome>,
                 loader: ({params})  => fetch(`http://localhost:5001/category/${params.id}`)
                 
             },
+           
           
             
           

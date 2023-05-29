@@ -16,11 +16,9 @@ const Category = () => {
 
 
     return (
-        <div className=' mx-auto max-w-[1200px] '>
+        <div className='mt-16'>
             <h2 className='font-semibold text-3xl text-center'>All Category Of Our Website</h2>
-            <div className=' grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-5 mt-5'>
-
-
+            <div className=''>
 
            {
             categories.map((categorie) =>

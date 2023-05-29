@@ -26,7 +26,7 @@ const Home = () => {
             <Category></Category>
            
 
-            <AllCateGories></AllCateGories>
+            {/* <AllCateGories></AllCateGories> */}
          
           
             <HomeCard></HomeCard>
