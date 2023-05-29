@@ -8,11 +8,13 @@ const CategoryCard = ({ categorie }) => {
 
 
     return (
-        // <div >
-        //     <Link to={`/allHome/${id}`}>
-        //         <button className='btn w-full'>{name}</button>
-        //     </Link>
-        // </div>
+
+     <div>
+         {/* <div >
+            <Link to={`/allHome/${id}`}>
+                <button className='btn w-full'>{name}</button>
+            </Link>
+        </div> */}
         <div className="card m-10 shadow-xl image-full">
         <figure><img src={image} alt="" className='w-full'/></figure>
         <div className="card-body">
@@ -25,6 +27,8 @@ const CategoryCard = ({ categorie }) => {
             </div>
         </div>
     </div>
+     </div>
+       
     );
 };
 

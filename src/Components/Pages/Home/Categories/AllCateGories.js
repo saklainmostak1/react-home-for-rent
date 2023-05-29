@@ -28,7 +28,8 @@ const AllCateGories = () => {
 
     return (
         <div className='flex'>
-            <div className='w-[30%]  grid'>
+            <div className='w-[30%]  '>
+               
                 <Link onClick={() => filterItem("2")}>For Rent</Link>
                 <Link onClick={() => filterItem("1")}>For Sell</Link>
                 
@@ -36,9 +37,11 @@ const AllCateGories = () => {
            
             <div className='w-[70%]'>
                 {
-                    homes?.map((home) =>
+                    homes.map((home) =>
 
-                       <p>{home.name}</p>
+                       <p>
+                        {home.name}
+                       </p>
                     )
                 }
             </div>
