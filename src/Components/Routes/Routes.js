@@ -8,9 +8,11 @@ import ContactMessage from "../Pages/ContactMessage/ContactMessage";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import AllServices from "../Pages/Home/AllServices/AllServices";
 import AllHome from "../Pages/Home/AllHome/AllHome";
-import AllCateGories from "../Pages/Home/Categories/AllCateGories";
 import AllHomeDetails from "../Pages/Home/AllHomeDetails/AllHomeDetails";
 import CheckOutPage from "../Pages/CheckOutPage/CheckOutPage";
+import DashBoardNav from "../DashBoard/DashBoardNav/DashBoardNav";
+import AddAProducts from "../DashBoard/AddAProducts/AddAProducts";
+import Dashboard from "../DashBoard/Dashboard/Dashboard";
 
 
 export const router = createBrowserRouter([
@@ -65,6 +67,21 @@ export const router = createBrowserRouter([
           
             
           
+        ]
+    },
+
+    {
+        path:'/dashboard',
+        element: <DashBoardNav></DashBoardNav>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <Dashboard></Dashboard>
+            },
+            {
+                path: '/dashboard/addProducts',
+                element: <AddAProducts></AddAProducts>
+            }
         ]
     }
 ])

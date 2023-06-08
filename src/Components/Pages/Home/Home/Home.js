@@ -29,6 +29,7 @@ const Home = () => {
             <HomeCard></HomeCard>
             <HomeSliderTwo></HomeSliderTwo>
             <WhatWeSay></WhatWeSay>
+            
             <ShowReview></ShowReview>
             <AddReviews></AddReviews>
         

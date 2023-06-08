@@ -74,6 +74,14 @@ const Nav2 = () => {
                 <li className="nav-item">
                   <Link
                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                    to='/dashboard'
+                  >
+                    <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span className="md:ml-96 lg:ml-2">Dashboard</span>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                     to='/login'
                   >
                     <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span className="md:ml-96 lg:ml-2">Login</span>
@@ -87,6 +95,8 @@ const Nav2 = () => {
                     <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span className="md:ml-96 lg:ml-2">Register</span>
                   </Link>
                 </li>
+              
+              
               </ul>
             </div>
           </div>

@@ -3,10 +3,10 @@ import { FaFacebook, FaTwitter, FaLinkedin, FaWhatsapp, FaInstagram, FaGoogle, }
 
 const ContactMessage = () => {
     return (
-        <div className='m-20'>
+        <div className='lg:m-20 m-5 md:m-10'>
             <h2 className="text-4xl text-center mb-10">Send Us Message What You Want To Say
             </h2>
-            <div>
+            <div className='max-w-[1140px] mx-auto'>
                 <form
                 >
 
