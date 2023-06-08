@@ -10,6 +10,8 @@ import Category from '../Category/Category';
 import AllCateGories from '../Categories/AllCateGories';
 
 import CategoriesCard from '../Categories/CategoriesCard';
+import HomeSliderTwo from '../HomeSliderTwo/HomeSliderTwo';
+import WhatWeSay from '../WhatWeSay/WhatWeSay';
 
 
 
@@ -24,12 +26,9 @@ const Home = () => {
             <HomeSlider></HomeSlider>
             <HomeSearchBar ></HomeSearchBar>
             <Category></Category>
-           
-
-            {/* <AllCateGories></AllCateGories> */}
-         
-          
             <HomeCard></HomeCard>
+            <HomeSliderTwo></HomeSliderTwo>
+            <WhatWeSay></WhatWeSay>
             <ShowReview></ShowReview>
             <AddReviews></AddReviews>
         
