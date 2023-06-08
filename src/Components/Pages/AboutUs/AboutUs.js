@@ -37,7 +37,7 @@ const AboutUs = () => {
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">At A Glance</h1>
                         <p className="py-6">Starting back in 2016, Bproperty has now become the only real estate solutions provider in Bangladesh and its largest transacting real estate company. Combining an unmatched online and offline presence with our incomparable database of information, Bproperty has become the pioneer that caters to the needs of those with real estate queries, whether property search or customization, providing supporting services such as legal, mortgage, and interior to ensure all solutions are under one roof.
-                        <br /> <br />
+                            <br /> <br />
 
                             Bproperty utilizes technology to drive solutions for all stakeholders within the real estate industry with the vision to ensure that all Bangladeshis have access to a trusted and secure real estate service provider.</p>
                     </div>
@@ -105,6 +105,48 @@ const AboutUs = () => {
                         </div>
                     </div>
                 </div>
+
+                <div className='mt-8'>
+                    <h1 className='text-2xl text-center'>Our Best Agent</h1>
+                    <div className='container mx-auto'>
+                        <div className='grid mt-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+                            <div className="card  bg-base-100 shadow-xl">
+                                <figure className="px-10 pt-10">
+                                    <img src={img} alt="Shoes" className="rounded-xl" />
+                                </figure>
+                                <div className="card-body items-center text-center">
+                                    <h2 className="card-title">Jordan Smith</h2>
+                                    <p>Expart Agent</p>
+
+                                </div>
+                            </div>
+                            <div className="card  bg-base-100 shadow-xl">
+                                <figure className="px-10 pt-10">
+                                    <img src={img} alt="Shoes" className="rounded-xl" />
+                                </figure>
+                                <div className="card-body items-center text-center">
+                                    <h2 className="card-title">Sandra Brown</h2>
+                                    <p>Sale Agent</p>
+
+                                </div>
+                            </div>
+                            <div className="card  bg-base-100 shadow-xl">
+                                <figure className="px-10 pt-10">
+                                    <img src={img} alt="Shoes" className="rounded-xl" />
+                                </figure>
+                                <div className="card-body items-center text-center">
+                                    <h2 className="card-title">Susan Mendelson</h2>
+                                    <p>Area Agent</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
             </div>
         </div>
     );
