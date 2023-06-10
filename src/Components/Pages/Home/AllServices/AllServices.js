@@ -55,7 +55,7 @@ const AllServices = () => {
                                     <h2 className='text-2xl font-semibold mt-2'>Let Us Help You To Rent/Buy This {home.name} Which Is Now Available Now</h2>
 
                                     <div className='flex gap-2 mt-3 '>
-                                    <Link to={`/check-out-page/${homes._id}`}>
+                                    <Link to={`/check-out-page/${home._id}`}>
                                         
                                         <button className='bg-[#1697DA] px-6 rounded-sm text-white font-semibold btn-sm'>Book Now</button>
                                         </Link>
