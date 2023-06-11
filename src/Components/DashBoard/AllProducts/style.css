@@ -1,0 +1,28 @@
+.paigination {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    margin-top: 1rem;
+    
+}
+.paigination button {
+    border: 3px solid black;
+    width: 35px;
+    height: 35px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.0s ease;
+    background-color: transparent;
+    color: rgb(173, 44, 44);
+    border-color: #eee;
+}
+.paigination button.active {
+    font-weight: 900;
+    border-color: #101010;
+    background-color: rgb(235, 227, 227);
+    color: #101010;
+}

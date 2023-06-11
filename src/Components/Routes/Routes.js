@@ -13,6 +13,8 @@ import CheckOutPage from "../Pages/CheckOutPage/CheckOutPage";
 import DashBoardNav from "../DashBoard/DashBoardNav/DashBoardNav";
 import AddAProducts from "../DashBoard/AddAProducts/AddAProducts";
 import Dashboard from "../DashBoard/Dashboard/Dashboard";
+import AllProducts from "../DashBoard/AllProducts/AllProducts";
+import UpdateProducts from "../DashBoard/AllProducts/UpdateProducts";
 
 
 export const router = createBrowserRouter([
@@ -81,7 +83,15 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/addProducts',
                 element: <AddAProducts></AddAProducts>
-            }
+            },
+            {
+                path: '/dashboard/allProducts',
+                element: <AllProducts></AllProducts>
+            },
+            {
+                path: '/dashboard/update/products/:id',
+                element: <UpdateProducts></UpdateProducts>
+            },
         ]
     }
 ])

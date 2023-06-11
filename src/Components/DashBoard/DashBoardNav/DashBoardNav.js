@@ -4,7 +4,7 @@ import Navbars from '../../Pages/Shared/Navbars/Navbars';
 
 const DashBoardNav = () => {
     return (
-        <div className='container mx-auto'>
+        <div className=''>
 
 
             <div className="drawer">
@@ -71,7 +71,7 @@ const DashBoardNav = () => {
                                     </li>
 
                                     <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
-                                        <Link to=''>
+                                        <Link to='/dashboard/allProducts'>
                                             All Products
                                         </Link>
                                     </li>
