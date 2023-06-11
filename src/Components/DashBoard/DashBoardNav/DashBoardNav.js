@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import Navbars from '../../Pages/Shared/Navbars/Navbars';
 
 const DashBoardNav = () => {
@@ -43,18 +43,172 @@ const DashBoardNav = () => {
                     <label htmlFor="my-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
 
+
                         <li>
                             <Link to='/dashboard'>
                                 Dashboard
                             </Link>
                         </li>
-                        <li>
-                            <Link to='/dashboard/addProducts'>
-                                Add A Products
-                            </Link>
-                        </li>
 
+
+
+
+                        <div className="collapse ">
+                            <input type="checkbox" className="peer" />
+                            <div className="collapse-title flex justify-between w-[124%] hover:text-[#ff8084]">
+                                <span>
+                                    <i class="fa-solid fa-cart-shopping text-xs w-[20px]"></i>Manage Products
+                                </span>{" "}
+                                <i className="fa-solid fa-angle-right"></i>
+                            </div>
+                            <div className="collapse-content ">
+                                <ul>
+
+                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                        <Link to='/dashboard/addProducts'>
+                                            Add A Products
+                                        </Link>
+                                    </li>
+
+                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                        <Link to=''>
+                                            All Products
+                                        </Link>
+                                    </li>
+                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                        <Link to=''>
+                                            All   Products Review
+                                        </Link>
+                                    </li>
+                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                        <Link to=''>
+                                            Manage   Products Review
+                                        </Link>
+                                    </li>
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <div className="collapse ">
+                            <input type="checkbox" className="peer" />
+                            <div className="collapse-title flex justify-between w-[124%] hover:text-[#ff8084]">
+                                <span>
+                                    <i class="fa-solid fa-cart-shopping text-xs w-[20px]"></i> Users
+                                </span>{" "}
+                                <i className="fa-solid fa-angle-right"></i>
+                            </div>
+                            <div className="collapse-content ">
+                                <ul>
+
+                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                        <Link to=''>
+                                            All Users
+                                        </Link>
+                                    </li>
+
+                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                        <Link to=''>
+                                            Manage  Users
+                                        </Link>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <div className="collapse ">
+                            <input type="checkbox" className="peer" />
+                            <div className="collapse-title flex justify-between w-[124%] hover:text-[#ff8084]">
+                                <span>
+                                    <i class="fa-solid fa-cart-shopping text-xs w-[20px]"></i> Orders
+                                </span>{" "}
+                                <i className="fa-solid fa-angle-right"></i>
+                            </div>
+                            <div className="collapse-content ">
+                                <ul>
+
+                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                        <Link to=''>
+                                            All Orders
+                                        </Link>
+                                    </li>
+
+                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                        <Link to=''>
+                                            Manage  Orders
+                                        </Link>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="collapse ">
+                            <input type="checkbox" className="peer" />
+                            <div className="collapse-title flex justify-between w-[124%] hover:text-[#ff8084]">
+                                <span>
+                                    <i class="fa-solid fa-cart-shopping text-xs w-[20px]"></i> Manage Website
+                                </span>{" "}
+                                <i className="fa-solid fa-angle-right"></i>
+                            </div>
+                            <div className="collapse-content ">
+                                <ul>
+
+                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                        <Link to=''>
+                                            All Website Review
+                                        </Link>
+                                    </li>
+                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                        <Link to=''>
+                                            Manage Website Review
+                                        </Link>
+                                    </li>
+
+                                 
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="collapse ">
+                            <input type="checkbox" className="peer" />
+                            <div className="collapse-title flex justify-between w-[124%] hover:text-[#ff8084]">
+                                <span>
+                                    <i class="fa-solid fa-cart-shopping text-xs w-[20px]"></i> Payment
+                                </span>{" "}
+                                <i className="fa-solid fa-angle-right"></i>
+                            </div>
+                            <div className="collapse-content ">
+                                <ul>
+
+                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                        <Link to=''>
+                                            Paid Products
+                                        </Link>
+                                    </li>
+
+                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                        <Link to=''>
+                                            Unpaid Products
+                                        </Link>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+
+
+
+                     
                     </ul>
+
                 </div>
 
 

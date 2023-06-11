@@ -7,10 +7,6 @@ import ShowReview from '../ReviewSection/ShowReview/ShowReview';
 import HomeSlider from '../HomeSlider/HomeSlider';
 import DemoHome from '../SomeDemoHome/DemoHome';
 import Category from '../Category/Category';
-import AllCateGories from '../Categories/AllCateGories';
-
-import CategoriesCard from '../Categories/CategoriesCard';
-import HomeSliderTwo from '../HomeSliderTwo/HomeSliderTwo';
 import WhatWeSay from '../WhatWeSay/WhatWeSay';
 
 
@@ -27,11 +23,10 @@ const Home = () => {
             <HomeSearchBar ></HomeSearchBar>
             <Category></Category>
             <HomeCard></HomeCard>
-            <HomeSliderTwo></HomeSliderTwo>
             <WhatWeSay></WhatWeSay>
-            
             <ShowReview></ShowReview>
             <AddReviews></AddReviews>
+        
         
         </div>
     );
