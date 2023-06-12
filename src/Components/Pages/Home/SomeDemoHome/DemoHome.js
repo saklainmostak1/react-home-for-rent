@@ -56,9 +56,9 @@ const DemoHome = () => {
 
                         <h1 className='text-lg font-semibold'>Let Us Help You To Rent This 5500 Sq Ft Duplex Which Is Now Available In Lalmatia</h1>
                         <div className='flex gap-2 mt-3'>
-                            <button className='bg-[#1697DA] px-6 rounded-md text-white font-semibold btn-sm'>Book Now</button>
+                            <button disabled className='bg-gray-400 px-6 rounded-sm text-white font-semibold btn-sm'>Book Now</button>
 
-                            <button className='bg-[#1697DA] px-6 rounded-md text-white font-semibold btn-sm'>Details</button>
+                            <button disabled className='bg-gray-400 px-6 rounded-sm text-white font-semibold btn-sm'>Details</button>
 
                         </div>
                     </div>
@@ -83,9 +83,9 @@ const DemoHome = () => {
 
                         <h1 className='text-lg font-semibold'>Let Us Help You To Rent This 5500 Sq Ft Duplex Which Is Now Available In Lalmatia</h1>
                         <div className='flex gap-2 mt-3'>
-                            <button className='bg-[#1697DA] px-6 rounded-md text-white font-semibold btn-sm'>Book Now</button>
+                            <button disabled className='bg-gray-400 px-6 rounded-sm text-white font-semibold btn-sm'>Book Now</button>
 
-                            <button className='bg-[#1697DA] px-6 rounded-md text-white font-semibold btn-sm'>Details</button>
+                            <button  disabled className='bg-gray-400 px-6 rounded-sm text-white font-semibold btn-sm'>Details</button>
 
                         </div>
                     </div>
@@ -110,9 +110,9 @@ const DemoHome = () => {
 
                         <h1 className='text-lg font-semibold'>Let Us Help You To Rent This 5500 Sq Ft Duplex Which Is Now Available In Lalmatia</h1>
                         <div className='flex gap-2 mt-3'>
-                            <button className='bg-[#1697DA] px-6 rounded-md text-white font-semibold btn-sm'>Book Now</button>
+                            <button disabled className='bg-gray-400 px-6 rounded-sm text-white font-semibold btn-sm'>Book Now</button>
 
-                            <button className='bg-[#1697DA] px-6 rounded-md text-white font-semibold btn-sm'>Details</button>
+                            <button disabled className=' bg-gray-400 px-6 rounded-sm text-white font-semibold btn-sm'>Details</button>
 
                         </div>
                     </div>

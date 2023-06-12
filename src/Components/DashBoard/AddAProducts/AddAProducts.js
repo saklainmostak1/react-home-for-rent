@@ -147,7 +147,7 @@ const AddAProducts = () => {
             <h2 className="text-4xl text-center mb-5">Add Products</h2>
             <form onSubmit={handleAddProducts}>
                 <div className="container mx-auto px-3 pt-10 pb-10 bg-[#ddddddac]">
-                    <h1 className="font-bold text-2xl text-white">Update product</h1>
+                    <h1 className="font-bold text-2xl ">Add product</h1>
                     <div className="lg:flex ">
                         <div className=" mt-8 lg:w-[50%] w-full lg:mr-5">
                             <div className=" bg-white p-5 rounded-md">
@@ -184,7 +184,7 @@ const AddAProducts = () => {
                                     </div>
                                     <div className="w-full">
                                         <select
-name='category'
+                                            name='category'
                                             className="select select-bordered w-full rounded-sm"
 
                                             id=""
@@ -214,7 +214,7 @@ name='category'
                                     </div>
                                     <div className="w-full">
                                         <select
-name='type'
+                                            name='type'
                                             className="select select-bordered w-full rounded-sm"
 
                                             id=""
@@ -341,7 +341,7 @@ name='type'
                                     </div>
                                     <div className="w-full">
                                         <input
-                                        name='image'
+                                            name='image'
                                             type='text'
                                             class="file-input file-input-bordered w-full"
                                         />
@@ -366,7 +366,7 @@ name='type'
                                     </div>
                                     <div className="w-full">
                                         <textarea
-                                        name='description'
+                                            name='description'
                                             type='text'
                                             id=""
                                             className="textarea textarea-bordered w-full"
@@ -381,7 +381,7 @@ name='type'
                                     </div>
                                     <div className="w-full">
                                         <textarea
-                                        name='moredescription'
+                                            name='moredescription'
                                             type='text'
                                             id=""
                                             className="textarea textarea-bordered w-full"
@@ -396,7 +396,7 @@ name='type'
                                     </div>
                                     <div className="w-full">
                                         <textarea
-                                        name='additionalInfo'
+                                            name='additionalInfo'
                                             type='text'
                                             id=""
                                             className="textarea textarea-bordered w-full"

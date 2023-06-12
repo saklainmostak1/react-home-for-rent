@@ -15,6 +15,7 @@ import AddAProducts from "../DashBoard/AddAProducts/AddAProducts";
 import Dashboard from "../DashBoard/Dashboard/Dashboard";
 import AllProducts from "../DashBoard/AllProducts/AllProducts";
 import UpdateProducts from "../DashBoard/AllProducts/UpdateProducts";
+import HomeReviews from "../Pages/Home/AllHomeDetails/HomeReviews";
 
 
 export const router = createBrowserRouter([
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
             {
                 path: '/check-out-page/:id',
                 element: <CheckOutPage></CheckOutPage>
+            },
+            {
+                path: '/all-Home/reviews/:id',
+                element: <HomeReviews></HomeReviews>
             },
            
             {

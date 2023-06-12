@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './style.css'
 import { HiTrash, HiEye, HiPencilAlt } from "react-icons/hi";
-import { Button } from '@material-tailwind/react';
+
 
 const AllProducts = () => {
 
 
-    const [allHomes, setAllHomes] = useState([])
+    const [allHome, setAllHome] = useState([])
 
     useEffect(() => {
         fetch(`http://localhost:5001/allHome`)
             .then(Response => Response.json())
-            .then(data => setAllHomes(data))
+            .then(data => setAllHome(data))
     }, [])
 
 
@@ -22,9 +22,9 @@ const AllProducts = () => {
 
     const lastPostIndex = currentPage * postsPerPage
     const firstPosIndex = lastPostIndex - postsPerPage
-    const currentPosts = allHomes.slice(firstPosIndex, lastPostIndex)
+    const currentPosts = allHome.slice(firstPosIndex, lastPostIndex)
 
-    let totalPosts = allHomes.length
+    let totalPosts = allHome.length
     let pages = []
 
     for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
@@ -75,7 +75,7 @@ const AllProducts = () => {
 
                                     //   <button className="btn loading m-10 ">loading</button>
                                     //   :
-                                    currentPosts.map((product, i) =>
+                                    currentPosts?.map((product, i) =>
 
                                         <tr>
                                             <td>

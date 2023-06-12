@@ -46,6 +46,10 @@ const AllHomeDetails = () => {
 
                                 <button className='bg-[#1697DA] px-6 rounded-sm text-white font-semibold btn-sm'>Book Now</button>
                             </Link>
+                            <Link to={`/all-Home/reviews/${homes._id}`}>
+
+                                <button className='bg-[#1697DA] px-6 rounded-sm text-white font-semibold btn-sm'>Add Review</button>
+                            </Link>
                         </div>
                     </div>
 
