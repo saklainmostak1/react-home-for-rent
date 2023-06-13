@@ -6,32 +6,32 @@ import { IoIosStar } from "react-icons/io";
 
 const DemoHome = () => {
 
-    const demoCard = [
-        {
-            _id: 1,
-            img: img,
-            price: 1059,
-            name: 'Let Us Help You To Rent This 5500 Sq Ft Duplex Which Is Now Available In Lalmatia',
-            text: 'Waiting for winning a ready Duplex in Lalmatia? You just chose......'
+    // const demoCard = [
+    //     {
+    //         _id: 1,
+    //         img: img,
+    //         price: 1059,
+    //         name: 'Let Us Help You To Rent This 5500 Sq Ft Duplex Which Is Now Available In Lalmatia',
+    //         text: 'Waiting for winning a ready Duplex in Lalmatia? You just chose......'
 
-        },
-        {
-            _id: 2,
-            img: img,
-            price: 1059,
-            name: 'Let Us Help You To Rent This 5500 Sq Ft Duplex Which Is Now Available In Lalmatia',
-            text: 'Waiting for winning a ready Duplex in Lalmatia? You just chose......'
+    //     },
+    //     {
+    //         _id: 2,
+    //         img: img,
+    //         price: 1059,
+    //         name: 'Let Us Help You To Rent This 5500 Sq Ft Duplex Which Is Now Available In Lalmatia',
+    //         text: 'Waiting for winning a ready Duplex in Lalmatia? You just chose......'
 
-        },
-        {
-            _id: 3,
-            img: img,
-            price: 1059,
-            name: 'Let Us Help You To Rent This 5500 Sq Ft Duplex Which Is Now Available In Lalmatia',
-            text: 'Waiting for winning a ready Duplex in Lalmatia? You just chose......'
+    //     },
+    //     {
+    //         _id: 3,
+    //         img: img,
+    //         price: 1059,
+    //         name: 'Let Us Help You To Rent This 5500 Sq Ft Duplex Which Is Now Available In Lalmatia',
+    //         text: 'Waiting for winning a ready Duplex in Lalmatia? You just chose......'
 
-        },
-    ]
+    //     },
+    // ]
 
 
     return (

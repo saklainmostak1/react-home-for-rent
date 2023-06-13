@@ -1,11 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaGoogle, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { Typewriter } from 'react-simple-typewriter';
 import img from '../Login/login.svg'
+import { useContext } from 'react';
+import { AuthContext } from '../../Authentication/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
+
+
+    const {createUser, providerLogin, updateUser} = useContext(AuthContext)
+    const googleProvider = new GoogleAuthProvider()
+
+    const handleRegister = event =>{
+        event.preventDefault()
+        const form = event.target
+        const name = form.name.value
+        const email = form.email.value
+        const password = form.password.value
+        // const photo = form.photo.value
+        // const user = form.user.value
+   
+        console.log(name, email,  password);
+   
+        createUser(email , password)
+        .then(result => {
+          const user = result.user
+          console.log(user)
+ 
+        })
+        .catch(error => {
+          console.error(error)
+        })
+      }
+
+      const handleGoogleSignIn = () => {
+        return providerLogin(googleProvider)
+          .then(result => {
+            const user = result.user
+            console.log(user);
+           
+          })
+          .catch(error => console.error(error))
+      }
     return (
+
+
+
         <div className='mt-10'>
             <div className='grid justify-center '>
                 <img
@@ -41,12 +83,14 @@ const Register = () => {
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-5 ">
                         <h1 className="text-3xl font-bold text-center">Registration From Here!</h1>
-                        <form className="card-body" >
+                        <form onSubmit={handleRegister} >
+                            <div className='card-body'>
+
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">First Name</span>
                                 </label>
-                                <input type="text" name='username' placeholder="First Name" className="input input-bordered" required />
+                                <input type="text" name='name' placeholder="First Name" className="input input-bordered" required />
                             </div>
                             {/* <div className="form-control">
                             <label className="label">
@@ -58,7 +102,9 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name='email' placeholder="email" className="input input-bordered" required />
+                                <input 
+                            
+                                type="email" name='email' placeholder="email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -90,7 +136,9 @@ const Register = () => {
                                 <p class="text-center font-semibold mx-4 mb-0">Or</p>
                             </div>
                             <div className='flex justify-center'>
-                                <button className="mr-1 btn btn-circle bg-red-700 border-none text-white">< FaGoogle></FaGoogle></button>
+                                <button
+                                onClick={handleGoogleSignIn}
+                                className="mr-1 btn btn-circle bg-red-700 border-none text-white">< FaGoogle></FaGoogle></button>
                                 <button className="mr-1 btn btn-circle bg-sky-500 border-none text-white">< FaTwitter></FaTwitter></button>
                                 <button className="mr-1 btn btn-circle bg-blue-900 border-none text-white">< FaFacebook></FaFacebook></button>
                                 <button className="mr-1 btn btn-circle bg-sky-800 border-none text-white">< FaLinkedin></FaLinkedin></button>
@@ -98,6 +146,7 @@ const Register = () => {
                             <label className="label">
                                 <p className='text-center mt-5'>Already Have An Account - <Link className='text-orange-600 font-bold' to='/login'>Login</Link> </p>
                             </label>
+                            </div>
                         </form>
                     </div>
 
