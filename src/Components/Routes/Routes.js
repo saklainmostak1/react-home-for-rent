@@ -63,22 +63,22 @@ export const router = createBrowserRouter([
                 path: '/all-Home/reviews/:id',
                 element: <HomeReviews></HomeReviews>
             },
-           
+
             {
                 path: '/allHome/:id',
                 element: <AllHome></AllHome>,
-                loader: ({params})  => fetch(`http://localhost:5001/category/${params.id}`)
-                
+                loader: ({ params }) => fetch(`http://localhost:5001/category/${params.id}`)
+
             },
-           
-          
-            
-          
+
+
+
+
         ]
     },
 
     {
-        path:'/dashboard',
+        path: '/dashboard',
         element: <DashBoardNav></DashBoardNav>,
         children: [
             {
