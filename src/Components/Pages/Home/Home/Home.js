@@ -8,6 +8,7 @@ import HomeSlider from '../HomeSlider/HomeSlider';
 import DemoHome from '../SomeDemoHome/DemoHome';
 import Category from '../Category/Category';
 import WhatWeSay from '../WhatWeSay/WhatWeSay';
+import HomeSliderCard from '../HomeSliderCard/HomeSliderCard';
 
 
 
@@ -20,6 +21,9 @@ const Home = () => {
             <HomeBanner></HomeBanner>
             <DemoHome></DemoHome>
             <HomeSlider></HomeSlider>
+            <div>
+                <HomeSliderCard></HomeSliderCard>
+            </div>
             <HomeSearchBar ></HomeSearchBar>
             <Category></Category>
             <HomeCard></HomeCard>

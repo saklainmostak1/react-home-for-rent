@@ -12,7 +12,7 @@ const HomeBanner = () => {
                         <h1 className="mb-5 text-4xl font-bold text-white">Let's Get Your Operating Authority</h1>
                         <p className="mb-5 text-white font-semibold">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique ducimus exercitationem, repellendus aperiam quisquam dolorem ratione numquam neque quaerat recusandae.</p>
                         <Link to={`/all-services`}>
-                            <button className="btn bg-[#3aa1d8] border-none text-white hover:bg-[#1697DA]">Get Started</button>
+                            <button className="btn bg-[#3aa1d8] border-none text-white hover:bg-blue-500 rounded-sm">Get Started</button>
                         </Link>
                     </div>
                 </div>

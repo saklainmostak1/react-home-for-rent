@@ -109,13 +109,13 @@ const HomeReviews = () => {
                     </div>
                 </div>
                 
-                <div>
+                <div className='max-w-[1000px] mx-auto'>
                     <form action="">
 
-                        <div className='lg:flex container mx-auto gap-10 p-2 mb-20 mt-10'>
+                        <div className='container mx-auto gap-10 p-2 mb-20 mt-10'>
 
 
-                            <div className='lg:w-[50%] border'>
+                            <div className='border'>
                                 <div className='text-center bg-[#15396D] p-5 gap-5 text-white font-bold'>
 
                                     <p className=''>Add Review</p>
@@ -190,19 +190,22 @@ const HomeReviews = () => {
                                                 </sup>
                                             </label>
                                         </div>
-                                        <input
-
-
-                                            placeholder="Product Name"
-                                            type="text"
-                                            className="input input-bordered mt-1 w-full rounded-sm"
-                                        />
+                                       
+                                         <textarea
+                                            name='additionalInfo'
+                                            type='text'
+                                            id=""
+                                            className="textarea textarea-bordered w-full"
+                                            cols="30"
+                                            rows="6"
+                                        ></textarea>
                                     </div>
 
                                 </div>
 
                                 <div className='text-center mb-5 p-5'>
-                                    <button className='btn w-full bg-[#1697DA] border-none hover:bg-[#57a2ca]'>Add Review</button>
+                                    <input type="button" value="Add Review" className='btn w-full bg-[#1697DA] border-none hover:bg-[#57a2ca]'/>
+                                    {/* <button className='btn w-full bg-[#1697DA] border-none hover:bg-[#57a2ca]'>Add Review</button> */}
                                 </div>
                             </div>
 
