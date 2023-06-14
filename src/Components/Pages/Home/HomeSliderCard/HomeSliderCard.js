@@ -16,9 +16,9 @@ const HomeSliderCard = () => {
 
 
     return (
-        <div className='lg:w-[800px] md:w-[800px] w-[300px] mx-auto'>
+        <div className='lg:w-[800px] md:w-[700px] w-[300px] mx-auto'>
             <div className='container mx-auto px-5'>
-            <div className='mt-[-120px] lg:mt-[-100px] '>
+            <div className='mt-[-120px] lg:mt-[-120px] md:mt-[-100px]'>
                 <div className='grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-5'>
                     {
                         category.map((categories) =>
