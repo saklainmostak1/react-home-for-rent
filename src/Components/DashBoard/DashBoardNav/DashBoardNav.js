@@ -1,8 +1,15 @@
 import React from 'react';
-import { Link, NavLink, Outlet } from 'react-router-dom';
-import Navbars from '../../Pages/Shared/Navbars/Navbars';
+import { Link,  Outlet } from 'react-router-dom';
+import useAdmin from '../../hooks/useAdmin';
+import { useContext } from 'react';
+import { AuthContext } from '../../Authentication/AuthProvider';
+
 
 const DashBoardNav = () => {
+
+const {user} = useContext(AuthContext)
+    const [isAdmin] = useAdmin(user?.email)
+
     return (
         <div className=''>
 
@@ -93,32 +100,36 @@ const DashBoardNav = () => {
                         </div>
 
 
+                       {
+                        isAdmin && 
+
                         <div className="collapse ">
-                            <input type="checkbox" className="peer" />
-                            <div className="collapse-title flex justify-between w-[124%] hover:text-[#ff8084]">
-                                <span>
-                                    <i class="fa-solid fa-cart-shopping text-xs w-[20px]"></i> Users
-                                </span>{" "}
-                                <i className="fa-solid fa-angle-right"></i>
-                            </div>
-                            <div className="collapse-content ">
-                                <ul>
-
-                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
-                                        <Link to=''>
-                                            All Users
-                                        </Link>
-                                    </li>
-
-                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
-                                        <Link to=''>
-                                            Manage  Users
-                                        </Link>
-                                    </li>
-
-                                </ul>
-                            </div>
+                        <input type="checkbox" className="peer" />
+                        <div className="collapse-title flex justify-between w-[124%] hover:text-[#ff8084]">
+                            <span>
+                                <i class="fa-solid fa-cart-shopping text-xs w-[20px]"></i> Users
+                            </span>{" "}
+                            <i className="fa-solid fa-angle-right"></i>
                         </div>
+                        <div className="collapse-content ">
+                            <ul>
+
+                                <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                    <Link to='/dashboard/all-users'>
+                                        All Users
+                                    </Link>
+                                </li>
+
+                                <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                    <Link to='/dashboard/all-users/manage'>
+                                        Manage  Users
+                                    </Link>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                       }
 
 
                         <div className="collapse ">

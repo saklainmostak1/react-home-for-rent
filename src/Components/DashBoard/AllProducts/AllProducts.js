@@ -2,18 +2,51 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './style.css'
 import { HiTrash, HiEye, HiPencilAlt } from "react-icons/hi";
+import { toast } from 'react-hot-toast';
+import { useQuery } from 'react-query';
 
 
 const AllProducts = () => {
 
 
-    const [allHome, setAllHome] = useState([])
+    // const [allHome, setAllHome] = useState([])
 
-    useEffect(() => {
-        fetch(`http://localhost:5001/allHome`)
+    // useEffect(() => {
+    //     fetch(`http://localhost:5001/allHome`)
+    //         .then(Response => Response.json())
+    //         .then(data => setAllHome(data))
+    // }, [])
+
+
+    const { data: allHome = [], isLoading, refetch
+    } = useQuery({
+        queryKey: ['useres'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5001/allHome')
+            const data = await res.json()
+            return data
+        }
+    })
+
+
+    const handleDelete = id =>{
+        const proceed = window.confirm('Are You Sure delete')
+            
+           if(proceed){
+            fetch(`http://localhost:5001/allHomes/${id}`, {
+                method: "DELETE",
+               
+            })
             .then(Response => Response.json())
-            .then(data => setAllHome(data))
-    }, [])
+            .then(data => {
+                if(data.deletedCount > 0){
+                    refetch()
+                    toast.success('Delete Successfully')
+                }
+               
+            })
+           }
+    }
 
 
     const [currentPage, setCurrentPage] = useState(1)
@@ -151,7 +184,9 @@ const AllProducts = () => {
 
 
 
-                                                    <button>
+                                                    <button 
+                                                    onClick={() => handleDelete(product._id)}
+                                                    >
                                                         <label
                                                             className="w-8 h-8 bg-red-200 inline-block rounded-full text-center cursor-pointer group hover:bg-red-500 duration-300 mr-1"
                                                             htmlFor=""

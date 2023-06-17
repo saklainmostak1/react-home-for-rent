@@ -16,6 +16,8 @@ import Dashboard from "../DashBoard/Dashboard/Dashboard";
 import AllProducts from "../DashBoard/AllProducts/AllProducts";
 import UpdateProducts from "../DashBoard/AllProducts/UpdateProducts";
 import HomeReviews from "../Pages/Home/AllHomeDetails/HomeReviews";
+import AllUsers from "../DashBoard/Users/AllUsers/AllUsers";
+import ManageUsers from "../DashBoard/Users/ManageUsers/ManageUsers";
 
 
 export const router = createBrowserRouter([
@@ -96,6 +98,14 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/update/products/:id',
                 element: <UpdateProducts></UpdateProducts>
+            },
+            {
+                path: '/dashboard/all-users',
+                element: <AllUsers></AllUsers>
+            },
+            {
+                path: '/dashboard/all-users/manage',
+                element: <ManageUsers></ManageUsers>
             },
         ]
     }

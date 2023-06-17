@@ -6,12 +6,15 @@ import img from '../Login/login.svg'
 import { useContext } from 'react';
 import { AuthContext } from '../../Authentication/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+import { toast } from 'react-hot-toast';
 
 const Register = () => {
 
 
     const { createUser, providerLogin, updateUser } = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider()
+    // const [createdUserEmail, setCreatedUserEmail] = useState('')
+
 
     const handleRegister = event => {
         event.preventDefault()
@@ -19,31 +22,74 @@ const Register = () => {
         const name = form.name.value
         const email = form.email.value
         const password = form.password.value
-        // const photo = form.photo.value
-        // const user = form.user.value
+        const role = form.role.value
+        const photo = form.photo.value
 
-        console.log(name, email, password);
+        const users = { name, email, role, photo }
+        console.log(name, email, password, photo);
 
+        fetch('http://localhost:5001/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(users)
+
+        })
+            .then(Response => Response.json())
+            .then(data => {
+                //   setCreatedUserEmail(email)
+                console.log(data)
+                if (data.acknowledged) {
+
+                    toast.success('Register Sucessfully')
+
+                }
+            })
+            .catch(error => console.error(error))
+        form.reset('')
         createUser(email, password)
             .then(result => {
                 const user = result.user
-                console.log(user)
 
+                console.log(user)
+                handleUpdateProfile(name, photo)
+                //   
             })
             .catch(error => {
                 console.error(error)
             })
     }
+    const handleUpdateProfile = (name, photo) => {
+        // , 
+        const profile = {
+            displayName: name,
+            photoURL: photo
 
+        }
+
+
+        updateUser(profile)
+            .then(() => { })
+            .catch(error => {
+                console.error(error)
+            })
+    }
     const handleGoogleSignIn = () => {
         return providerLogin(googleProvider)
             .then(result => {
                 const user = result.user
                 console.log(user);
+                toast.success('Successfully Register!');
 
             })
             .catch(error => console.error(error))
     }
+
+
+
+
+
     return (
 
 
@@ -88,9 +134,26 @@ const Register = () => {
 
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">First Name</span>
+                                        <span className="label-text"> Name</span>
                                     </label>
                                     <input type="text" name='name' placeholder="First Name" className="input input-bordered" required />
+                                </div>
+
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text"> Role</span>
+                                    </label>
+
+                                    <select name="role" id="" className="input input-bordered">
+                                        <option >Buyer</option>
+                                        <option >Seller</option>
+                                    </select>
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text"> Photo URL</span>
+                                    </label>
+                                    <input type="text" name='photo' placeholder="photo" className="input input-bordered" required />
                                 </div>
                                 {/* <div className="form-control">
                             <label className="label">
@@ -98,6 +161,7 @@ const Register = () => {
                             </label>
                             <input type="text" name='Last Name' placeholder="Last Name" className="input input-bordered" required />
                         </div> */}
+
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
@@ -130,24 +194,29 @@ const Register = () => {
 
                                         type="submit" className="btn btn-primary" value="Register" />
                                 </div>
-                                <div
-                                    class="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5"
-                                >
-                                    <p class="text-center font-semibold mx-4 mb-0">Or</p>
-                                </div>
-                                <div className='flex justify-center'>
-                                    <button
-                                        onClick={handleGoogleSignIn}
-                                        className="mr-1 btn btn-circle bg-red-700 border-none text-white">< FaGoogle></FaGoogle></button>
-                                    <button className="mr-1 btn btn-circle bg-sky-500 border-none text-white">< FaTwitter></FaTwitter></button>
-                                    <button className="mr-1 btn btn-circle bg-blue-900 border-none text-white">< FaFacebook></FaFacebook></button>
-                                    <button className="mr-1 btn btn-circle bg-sky-800 border-none text-white">< FaLinkedin></FaLinkedin></button>
-                                </div>
-                                <label className="label">
-                                    <p className='text-center mt-5'>Already Have An Account - <Link className='text-orange-600 font-bold' to='/login'>Login</Link> </p>
-                                </label>
                             </div>
                         </form>
+
+                        <div className='card-body'>
+                            <div
+                                class="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5"
+                            >
+                                <p class="text-center font-semibold mx-4 mb-0">Or</p>
+                            </div>
+                            <div className='flex justify-center'>
+                                <button
+                                    onClick={handleGoogleSignIn}
+                                    className="mr-1 btn btn-circle bg-red-700 border-none text-white">< FaGoogle></FaGoogle></button>
+                                <button className="mr-1 btn btn-circle bg-sky-500 border-none text-white">< FaTwitter></FaTwitter></button>
+                                <button className="mr-1 btn btn-circle bg-blue-900 border-none text-white">< FaFacebook></FaFacebook></button>
+                                <button className="mr-1 btn btn-circle bg-sky-800 border-none text-white">< FaLinkedin></FaLinkedin></button>
+                            </div>
+                            <label className="label">
+                                <p className='text-center mt-5'>Already Have An Account - <Link className='text-orange-600 font-bold' to='/login'>Login</Link> </p>
+                            </label>
+                        </div>
+
+
                     </div>
 
                 </div>

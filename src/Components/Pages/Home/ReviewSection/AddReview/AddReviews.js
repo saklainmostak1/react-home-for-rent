@@ -2,6 +2,10 @@ import React from 'react';
 import img7 from '../../ReviewSection/AddReview/contact1.png'
 
 const AddReviews = () => {
+
+    
+
+
     return (
         <div className='m-5'>
         <div className=' container mx-auto'>

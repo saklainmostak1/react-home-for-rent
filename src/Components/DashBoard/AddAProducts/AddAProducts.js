@@ -295,7 +295,7 @@ const AddAProducts = () => {
                                         <input
                                             name='date'
                                             placeholder="Product Name"
-                                            type="text"
+                                            type="date"
                                             className="input input-bordered mt-1 w-full rounded-sm"
                                         />
                                     </div>
