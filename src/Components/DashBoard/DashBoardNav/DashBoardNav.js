@@ -3,12 +3,14 @@ import { Link,  Outlet } from 'react-router-dom';
 import useAdmin from '../../hooks/useAdmin';
 import { useContext } from 'react';
 import { AuthContext } from '../../Authentication/AuthProvider';
+import useBuyers from '../../hooks/useBuyers';
 
 
 const DashBoardNav = () => {
 
 const {user} = useContext(AuthContext)
     const [isAdmin] = useAdmin(user?.email)
+    const [isBuyer] = useBuyers(user?.email)
 
     return (
         <div className=''>
@@ -99,9 +101,9 @@ const {user} = useContext(AuthContext)
                             </div>
                         </div>
 
-
+{/* 
                        {
-                        isAdmin && 
+                        isAdmin &&  */}
 
                         <div className="collapse ">
                         <input type="checkbox" className="peer" />
@@ -129,35 +131,39 @@ const {user} = useContext(AuthContext)
                             </ul>
                         </div>
                     </div>
-                       }
+                       
 
 
-                        <div className="collapse ">
-                            <input type="checkbox" className="peer" />
-                            <div className="collapse-title flex justify-between w-[124%] hover:text-[#ff8084]">
-                                <span>
-                                    <i class="fa-solid fa-cart-shopping text-xs w-[20px]"></i> Orders
-                                </span>{" "}
-                                <i className="fa-solid fa-angle-right"></i>
-                            </div>
-                            <div className="collapse-content ">
-                                <ul>
+                   {/* {
+                    isBuyer &&  */}
 
-                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
-                                        <Link to=''>
-                                            All Orders
-                                        </Link>
-                                    </li>
+                    <div className="collapse ">
+                    <input type="checkbox" className="peer" />
+                    <div className="collapse-title flex justify-between w-[124%] hover:text-[#ff8084]">
+                        <span>
+                            <i class="fa-solid fa-cart-shopping text-xs w-[20px]"></i> Orders
+                        </span>{" "}
+                        <i className="fa-solid fa-angle-right"></i>
+                    </div>
+                    <div className="collapse-content ">
+                        <ul>
 
-                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
-                                        <Link to=''>
-                                            Manage  Orders
-                                        </Link>
-                                    </li>
+                            <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                <Link to=''>
+                                    All Orders
+                                </Link>
+                            </li>
 
-                                </ul>
-                            </div>
-                        </div>
+                            <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                <Link to=''>
+                                    Manage  Orders
+                                </Link>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                   {/* } */}
 
                         <div className="collapse ">
                             <input type="checkbox" className="peer" />
