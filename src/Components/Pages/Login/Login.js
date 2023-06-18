@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../../Components/Pages/Login/login.svg'
 import { FaFacebook, FaGoogle, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { Typewriter } from 'react-simple-typewriter';
@@ -8,9 +8,11 @@ import { AuthContext } from '../../Authentication/AuthProvider';
 import { toast } from 'react-hot-toast';
 
 const Login = () => {
+    
+    const { loginWithEmailPAss } = useContext(AuthContext)
     const navigate = useNavigate()
-
-    const { loginWithEmailPAss, providerLogin } = useContext(AuthContext)
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
 
 
     const handleLogin = event => {
@@ -24,9 +26,8 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
-
+                navigate(from, {replace: true})
                 toast.success('Successfully Login!');
-                navigate('/')
 
 
             })

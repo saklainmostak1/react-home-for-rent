@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 
 
 
 const AllUsers = () => {
-    const [allusers, setAllUsers] = useState([])
+ 
 
-    useEffect(() => {
-        fetch(`http://localhost:5001/users`)
-            .then(Response => Response.json())
-            .then(data => setAllUsers(data))
-    }, [])
+
+    const { data: allusers = [], isLoading, refetch
+    } = useQuery({
+        queryKey: ['useres'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5001/users')
+            const data = await res.json()
+            return data
+        }
+    })
 
 
     const [currentPage, setCurrentPage] = useState(1)

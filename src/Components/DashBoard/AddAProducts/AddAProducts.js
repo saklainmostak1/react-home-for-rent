@@ -1,104 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { useQuery } from 'react-query';
 
 const AddAProducts = () => {
 
-    const [categories, setCategories] = useState([])
+
+    const { data: categories = [], isLoading, refetch
+    } = useQuery({
+        queryKey: ['useres'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5001/category')
+            const data = await res.json()
+            return data
+        }
+    })
 
 
-    useEffect(() => {
-        fetch(`http://localhost:5001/category`)
-            .then(Response => Response.json())
-            .then(data => setCategories(data))
-    }, [])
-    console.log(categories);
-
-
-
-
-
-
-    // const [name, setName] = useState('')
-    // const [category_id, setCategoryId] = useState('')
-    // const [type, setType] = useState('')
-    // const [image, setImage] = useState('')
-    // const [price, setPrice] = useState('')
-    // const [posted_date, setPosteDate] = useState('')
-    // const [location, setLocation] = useState('')
-    // const [validation, setValidation] = useState('')
-    // const [description, setDescription] = useState('')
-    // const [more_description, setMoreDescription] = useState('')
-    // const [additional_info, setAdditionalInfo] = useState('')
-
-
-
-
-
-
-    // useEffect(() => {
-    //     getBrands()
-    // }, [])
-
-
-    // const getBrands = async () => {
-    //     let result = await fetch(`http://localhost:5001/allHome`)
-    //     result = await result.json()
-    //     setName(result.name)
-    //     setCategoryId(result.category_id)
-    //     setType(result.type)
-    //     setImage(result.image)
-    //     setPrice(result.price)
-    //     setPosteDate(result.posted_date)
-    //     setLocation(result.location)
-    //     setValidation(result.validation)
-    //     setDescription(result.description)
-    //     setMoreDescription(result.more_description)
-    //     setAdditionalInfo(result.additional_info)
-
-
-    // }
-
-
-
-
-    // const addHome = async () => {
-
-    //     console.log('PHOTO:');
-    //     const h = {}; //headers
-    //     let data = new FormData();
-
-    //     data.append('name', name);
-    //     data.append('category_id', category_id)
-    //     data.append('type', type)
-    //     data.append('image', image)
-    //     data.append('price', price)
-    //     data.append('posted_date', posted_date)
-    //     data.append('location', location)
-    //     data.append('validation', validation)
-    //     data.append('description', description)
-    //     data.append('more_description', more_description)
-    //     data.append('additional_info', additional_info)
-
-
-
-
-    //     h.Accept = 'application/json';
-    //     fetch(`http://localhost:5001/allHome`, {
-    //         method: 'POST',
-    //         headers: h,
-    //         body: data
-    //     }).then(response => {
-    //         response.json()
-    //         console.log(response)
-
-    //     }).catch(err => {
-    //         console.log(err)
-
-    //     });
-
-    //     console.log(name, category_id, type, image, price, posted_date,location, validation, description, more_description, additional_info)
-
-    // }
 
 
     const handleAddProducts = event => {
@@ -134,8 +51,8 @@ const AddAProducts = () => {
                 console.log(data)
                 if (data.acknowledged === true) {
 
+                    refetch()
                     toast.success('Sucessfully add')
-                    // refetch()
                 }
             })
             .catch(error => console.error(error))

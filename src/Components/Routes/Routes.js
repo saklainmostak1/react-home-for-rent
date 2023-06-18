@@ -18,6 +18,9 @@ import UpdateProducts from "../DashBoard/AllProducts/UpdateProducts";
 import HomeReviews from "../Pages/Home/AllHomeDetails/HomeReviews";
 import AllUsers from "../DashBoard/Users/AllUsers/AllUsers";
 import ManageUsers from "../DashBoard/Users/ManageUsers/ManageUsers";
+import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
+import AllWebsiteReview from "../DashBoard/ManageWebsite/AllWebsiteReview/AllWebsiteReview";
+import ManageContactMessage from "../DashBoard/ManageWebsite/ManageContactMessage/ManageContactMessage";
 
 
 export const router = createBrowserRouter([
@@ -51,19 +54,19 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/all-services',
-                element: <AllServices></AllServices>
+                element:<AllServices></AllServices>
             },
             {
                 path: '/allHome/details/:id',
-                element: <AllHomeDetails></AllHomeDetails>
+                element: <PrivateRoutes><AllHomeDetails></AllHomeDetails></PrivateRoutes>
             },
             {
                 path: '/check-out-page/:id',
-                element: <CheckOutPage></CheckOutPage>
+                element: <PrivateRoutes><CheckOutPage></CheckOutPage></PrivateRoutes>
             },
             {
                 path: '/all-Home/reviews/:id',
-                element: <HomeReviews></HomeReviews>
+                element: <PrivateRoutes><HomeReviews></HomeReviews></PrivateRoutes>
             },
 
             {
@@ -81,7 +84,7 @@ export const router = createBrowserRouter([
 
     {
         path: '/dashboard',
-        element: <DashBoardNav></DashBoardNav>,
+        element: <PrivateRoutes><DashBoardNav></DashBoardNav></PrivateRoutes>,
         children: [
             {
                 path: '/dashboard',
@@ -106,6 +109,14 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/all-users/manage',
                 element: <ManageUsers></ManageUsers>
+            },
+            {
+                path: '/dashboard/manage-website/website-review',
+                element: <AllWebsiteReview></AllWebsiteReview>
+            },
+            {
+                path: '/dashboard/manage-website/contact-message',
+                element: <ManageContactMessage></ManageContactMessage>
             },
         ]
     }

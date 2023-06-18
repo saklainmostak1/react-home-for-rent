@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import { Link } from 'react-router-dom';
 import './style.css'
 import { HiTrash, HiEye, HiPencilAlt } from "react-icons/hi";
@@ -9,13 +9,6 @@ import { useQuery } from 'react-query';
 const AllProducts = () => {
 
 
-    // const [allHome, setAllHome] = useState([])
-
-    // useEffect(() => {
-    //     fetch(`http://localhost:5001/allHome`)
-    //         .then(Response => Response.json())
-    //         .then(data => setAllHome(data))
-    // }, [])
 
 
     const { data: allHome = [], isLoading, refetch

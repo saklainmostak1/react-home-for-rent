@@ -112,48 +112,52 @@ const Nav2 = () => {
                   <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span className="md:ml-96 lg:ml-2">About Us</span>
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  to='/dashboard'
-                >
-                  <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span className="md:ml-96 lg:ml-2">Dashboard</span>
-                </Link>
-              </li>
+
               {
                 user?.uid ?
 
 
 
+                  <>
+                    <li className="nav-item">
+                      <Link
+                        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                        to='/dashboard'
+                      >
+                        <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span className="md:ml-96 lg:ml-2">Dashboard</span>
+                      </Link>
+                    </li>
 
-                  <li>
-                    <button >
-                      <p className='lg:mt-[-10px]  md:ml-96 lg:ml-2 sm:mt-2 flex'>
-                        <div className="dropdown  lg:dropdown-end">
-                          <label tabIndex={0} className="btn m-1"><FaUser></FaUser></label>
-                          <ul tabIndex={0} className=" dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                            <div className=' mb-2'>
+                    <li>
+                      <button >
+                        <p className='lg:mt-[-10px]  md:ml-96 lg:ml-2 sm:mt-2 flex'>
+                          <div className="dropdown  lg:dropdown-end">
+                            <label tabIndex={0} className="btn m-1"><FaUser></FaUser></label>
+                            <ul tabIndex={0} className=" dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                              <div className=' mb-2'>
 
-                              <li><Link> {user?.displayName}</Link></li>
-                              <div className="avatar online placeholder">
-                                <div className="bg-neutral-focus text-neutral-content rounded-full w-16">
-                                  <img src={user.photoURL} alt="" />
+                                <li><Link> {user?.displayName}</Link></li>
+                                <div className="avatar online placeholder">
+                                  <div className="bg-neutral-focus text-neutral-content rounded-full w-16">
+                                    <img src={user.photoURL} alt="" />
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                            <li className='btn btn-primary'><button onClick={handleLogout}>LogOut</button></li>
-                          </ul>
+                              <li className='btn btn-primary'><button onClick={handleLogout}>LogOut</button></li>
+                            </ul>
 
-                        </div>
-                        {/* <p className='-mt-1 ml-2'> {user?.displayName}</p> */}
-                      </p>
-                    </button>
-                  </li>
+                          </div>
+                          {/* <p className='-mt-1 ml-2'> {user?.displayName}</p> */}
+                        </p>
+                      </button>
+                    </li>
+                  </>
 
 
                   :
 
                   <>
+
                     <li className="nav-item">
                       <Link
                         className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
