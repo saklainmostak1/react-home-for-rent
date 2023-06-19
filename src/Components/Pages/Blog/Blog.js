@@ -46,19 +46,21 @@ const Blog = () => {
             </div>
 
             <div className='flex justify-center mt-20'>
-                                <button className="mr-1 btn btn-circle bg-red-700 border-none text-white">< FaGoogle></FaGoogle></button>
-                                <button className="mr-1 btn btn-circle bg-sky-500 border-none text-white">< FaTwitter></FaTwitter></button>
-                                <button className="mr-1 btn btn-circle bg-blue-900 border-none text-white">< FaFacebook></FaFacebook></button>
-                                <button className="mr-1 btn btn-circle bg-sky-800 border-none text-white">< FaLinkedin></FaLinkedin></button>
-                            </div>
+                <button className="mr-1 btn btn-circle bg-red-700 border-none text-white">< FaGoogle></FaGoogle></button>
+                <button className="mr-1 btn btn-circle bg-sky-500 border-none text-white">< FaTwitter></FaTwitter></button>
+                <button className="mr-1 btn btn-circle bg-blue-900 border-none text-white">< FaFacebook></FaFacebook></button>
+                <button className="mr-1 btn btn-circle bg-sky-800 border-none text-white">< FaLinkedin></FaLinkedin></button>
+            </div>
+            <div className='max-w-[1000px] mx-auto '>
+
             <div className=' bg-slate-300 container mx-auto mt-20 rounded-md'>
 
                 <div className='m-20'>
-                   <div className='p-5'>
-                   <h2 className="text-2xl text-center">NEWSLETTER
-                    </h2>
-                    <p className='text-center'>Enter your name and email address below to subscribe to myBproperty newsletter</p>
-                   </div>
+                    <div className='p-5'>
+                        <h2 className="text-2xl text-center">NEWSLETTER
+                        </h2>
+                        <p className='text-center'>Enter your name and email address below to subscribe to myBproperty newsletter</p>
+                    </div>
                     <form
                     >
 
@@ -68,12 +70,13 @@ const Blog = () => {
                                 placeholder="email" className="input input-bordered input-success w-full " />
 
                         </div>
-                        <input className='btn btn-outline btn-info mb-5 w-full mt-5' type="submit" value="Send Review" />
+                        <input className='btn btn-outline btn-info mb-5 w-full mt-5' type="submit" value="Subscribe Now" />
                     </form>
                 </div>
 
 
 
+            </div>
             </div>
         </div>
 

@@ -8,6 +8,9 @@ import img5 from '../../img/values_icon_05.png'
 import img6 from '../../img/values_icon_06.png'
 import img8 from '../../img/about_img.png'
 import img9 from '../../img/about-us.webp'
+import men from '../../img/download (1).jpg'
+import men1 from '../../img/images (1).jpg'
+import men2 from '../../img/images.jpg'
 
 const AboutUs = () => {
     return (
@@ -21,8 +24,6 @@ const AboutUs = () => {
             <div>
                 <h4 className='text-lg font-semibold text-center mb-5'>BUY | SELL | RENT | LEGAL | MORTGAGE | INTERIOR</h4>
             </div>
-
-
 
             <div className="hero container max-w-[1000px] mx-auto">
                 <div className="hero-content flex-col lg:flex-row-reverse">
@@ -43,7 +44,6 @@ const AboutUs = () => {
                     </div>
                 </div>
             </div>
-
 
 
 
@@ -106,13 +106,17 @@ const AboutUs = () => {
                     </div>
                 </div>
 
-                <div className='mt-8'>
-                    <h1 className='text-2xl text-center'>Our Best Agent</h1>
-                    <div className='container mx-auto'>
-                        <div className='grid mt-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+
+                <div className='  bg-gray-200 '>
+                   
+                    <div className='container   py-10  max-w-[1000px] mx-auto mb-20'>
+                    <div className='mt-5'>
+                        <h1 className='text-2xl text-center '>Our Best Agent</h1>
+                    </div>
+                        <div className='p-5 lg:p-0 md:p-5 grid mt-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                             <div className="card  bg-base-100 shadow-xl">
                                 <figure className="px-10 pt-10">
-                                    <img src={img} alt="Shoes" className="rounded-xl" />
+                                    <img src={men} alt="Shoes" className="rounded-xl" />
                                 </figure>
                                 <div className="card-body items-center text-center">
                                     <h2 className="card-title">Jordan Smith</h2>
@@ -122,7 +126,7 @@ const AboutUs = () => {
                             </div>
                             <div className="card  bg-base-100 shadow-xl">
                                 <figure className="px-10 pt-10">
-                                    <img src={img} alt="Shoes" className="rounded-xl" />
+                                    <img src={men1} alt="Shoes" className="rounded-xl" />
                                 </figure>
                                 <div className="card-body items-center text-center">
                                     <h2 className="card-title">Sandra Brown</h2>
@@ -132,7 +136,7 @@ const AboutUs = () => {
                             </div>
                             <div className="card  bg-base-100 shadow-xl">
                                 <figure className="px-10 pt-10">
-                                    <img src={img} alt="Shoes" className="rounded-xl" />
+                                    <img src={men2} alt="Shoes" className="rounded-xl" />
                                 </figure>
                                 <div className="card-body items-center text-center">
                                     <h2 className="card-title">Susan Mendelson</h2>

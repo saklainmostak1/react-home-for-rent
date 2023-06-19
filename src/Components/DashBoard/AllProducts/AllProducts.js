@@ -48,8 +48,7 @@ const AllProducts = () => {
 
     const lastPostIndex = currentPage * postsPerPage
     const firstPosIndex = lastPostIndex - postsPerPage
-    const currentPosts = allHome.slice(firstPosIndex, lastPostIndex)
-
+    const currentPosts = allHome?.slice(firstPosIndex, lastPostIndex)
     let totalPosts = allHome.length
     let pages = []
 
@@ -68,10 +67,10 @@ const AllProducts = () => {
                             className="bg-[#ff8084] text-white px-6 py-2 lg:font-medium text-small lg:text-sm rounded-lg my-7 cursor-pointer "
                         >
                             <Link to="/dashboard/addProducts">Add New Product</Link>
-                            {/* <Link to="/dashboard/products/products/add-product">Add New Product</Link> */}
+                         
                         </label>
                     </div>
-                    {/* MODAL */}
+                  
 
 
 
@@ -142,13 +141,13 @@ const AllProducts = () => {
                                             </td>
 
                                             <td>
-                                                {product.description.slice(0, 30) + '...'}
+                                                {product?.description?.slice(0, 30) + '...'}
                                             </td>
                                             <td>
                                                 {product.more_description}
                                             </td>
                                             <td>
-                                                {product.additional_info.slice(0, 20) + '....'}
+                                                {product?.additional_info?.slice(0, 20) + '....'}
                                             </td>
                                             <td className="w-full">
                                                 <div className="flex items-center ">

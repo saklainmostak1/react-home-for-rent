@@ -149,7 +149,7 @@ const {user} = useContext(AuthContext)
                         <ul>
 
                             <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
-                                <Link to=''>
+                                <Link to='/dashboard/orders/all-orders'>
                                     All Orders
                                 </Link>
                             </li>

@@ -65,7 +65,7 @@ const ContactMessage = () => {
                                 <div className='grid grid-cols-1 lg:grid-cols-1 gap-4'>
                                     <input name='name' type="text" placeholder="Your Name" className="input input-bordered input-success w-full " required />
                                     <input 
-                                    defaultValue={user.email}
+                                    defaultValue={user?.email}
                                     name='email' type="email" disabled
                                         placeholder="email" className="input input-bordered input-success w-full " />
 

@@ -21,6 +21,8 @@ import ManageUsers from "../DashBoard/Users/ManageUsers/ManageUsers";
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 import AllWebsiteReview from "../DashBoard/ManageWebsite/AllWebsiteReview/AllWebsiteReview";
 import ManageContactMessage from "../DashBoard/ManageWebsite/ManageContactMessage/ManageContactMessage";
+import ThankYou from "../Pages/ThankYou/ThankYou";
+import AllOrders from "../DashBoard/Orders/AllOrders/AllOrders";
 
 
 export const router = createBrowserRouter([
@@ -55,6 +57,10 @@ export const router = createBrowserRouter([
             {
                 path: '/all-services',
                 element:<AllServices></AllServices>
+            },
+            {
+                path: '/thank-you',
+                element:<ThankYou></ThankYou>
             },
             {
                 path: '/allHome/details/:id',
@@ -117,6 +123,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/manage-website/contact-message',
                 element: <ManageContactMessage></ManageContactMessage>
+            },
+            {
+                path: '/dashboard/orders/all-orders',
+                element: <AllOrders></AllOrders>
             },
         ]
     }

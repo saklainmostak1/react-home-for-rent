@@ -91,6 +91,14 @@ const Nav2 = () => {
               <li className="nav-item">
                 <Link
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                  to='/thank-you'
+                >
+                  <span className="md:ml-96 lg:ml-2 ">Thank you</span>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                   to='/contactMessage'
                 >
                   <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="md:ml-96 lg:ml-2">Contact</span>
