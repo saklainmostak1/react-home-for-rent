@@ -23,12 +23,16 @@ import AllWebsiteReview from "../DashBoard/ManageWebsite/AllWebsiteReview/AllWeb
 import ManageContactMessage from "../DashBoard/ManageWebsite/ManageContactMessage/ManageContactMessage";
 import ThankYou from "../Pages/ThankYou/ThankYou";
 import AllOrders from "../DashBoard/Orders/AllOrders/AllOrders";
+import UserOrders from "../DashBoard/Orders/UserOrders/UserOrders";
+import Payment from "../DashBoard/Orders/Payment/Payment";
+import DisplayError from "../Pages/Shared/DisplayError/DisplayError";
 
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <DisplayError>,</DisplayError>,
         children: [
             {
                 path: '/',
@@ -91,6 +95,7 @@ export const router = createBrowserRouter([
     {
         path: '/dashboard',
         element: <PrivateRoutes><DashBoardNav></DashBoardNav></PrivateRoutes>,
+        errorElement: <DisplayError></DisplayError>,
         children: [
             {
                 path: '/dashboard',
@@ -127,6 +132,14 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/orders/all-orders',
                 element: <AllOrders></AllOrders>
+            },
+            {
+                path: '/dashboard/orders/user-orders',
+                element: <UserOrders></UserOrders>
+            },
+            {
+                path: '/dashboard/orders/payments/:id',
+                element: <Payment></Payment>
             },
         ]
     }

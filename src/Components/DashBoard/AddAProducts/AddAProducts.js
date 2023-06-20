@@ -7,7 +7,7 @@ const AddAProducts = () => {
 
     const { data: categories = [], isLoading, refetch
     } = useQuery({
-        queryKey: ['useres'],
+        queryKey: ['categories'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5001/category')
             const data = await res.json()
@@ -109,7 +109,7 @@ const AddAProducts = () => {
                                         >
                                             <option selected disabled>Select A Category</option>
                                             {
-                                                categories.map((categori) =>
+                                                categories?.map((categori) =>
                                                     <>
                                                         <option value={categori.id}>{categori.name}</option>
                                                     </>

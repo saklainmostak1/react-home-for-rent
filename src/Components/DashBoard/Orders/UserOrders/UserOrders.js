@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
+import { useContext } from 'react';
 import { toast } from 'react-hot-toast';
-import { HiTrash } from 'react-icons/hi';
 import { useQuery } from 'react-query';
+import { AuthContext } from '../../../Authentication/AuthProvider';
+import { HiTrash } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 
-const AllOrders = () => {
+const UserOrders = () => {
 
-    const { data: allOrders = [], isLoading, refetch
+    const { user } = useContext(AuthContext)
+
+    const { data: userOrders = [], isLoading, refetch
     } = useQuery({
-        queryKey: ['allOrders'],
+        queryKey: ['userOrders'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5001/orders`)
+            const res = await fetch(`http://localhost:5001/order?email=${user?.email}`)
             const data = await res.json()
             return data
         }
@@ -20,7 +25,7 @@ const AllOrders = () => {
         const proceed = window.confirm('Are You Sure delete')
 
         if (proceed) {
-            fetch(``, {
+            fetch(`http://localhost:5001/order/${id}`, {
                 method: "DELETE",
 
             })
@@ -42,8 +47,8 @@ const AllOrders = () => {
 
     const lastPostIndex = currentPage * postsPerPage
     const firstPosIndex = lastPostIndex - postsPerPage
-    const currentPosts = allOrders?.slice(firstPosIndex, lastPostIndex)
-    let totalPosts = allOrders.length
+    const currentPosts = userOrders?.slice(firstPosIndex, lastPostIndex)
+    let totalPosts = userOrders.length
     let pages = []
 
     for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
@@ -107,7 +112,7 @@ const AllOrders = () => {
                                             <td>
                                                 {allOrders.email}
                                             </td>
-                                           
+
                                             <td>
 
                                                 <p className="text-sm text-slate-400">
@@ -118,28 +123,51 @@ const AllOrders = () => {
                                             <td>
                                                 {allOrders.adress}
                                             </td>
+                                           
                                             <td>
-                                                {allOrders.adress}
+                                                {
+                                                    allOrders.price && !allOrders.paid &&
+                                                    <Link to={`/dashboard/orders/payments/${allOrders._id}`}>
+                                                        <button className='btn btn-accent btn-xs'>PAY</button>
+                                                    </Link>
+                                                }
+
+                                                {
+                                                    allOrders.price && allOrders.paid &&
+                                                    <span className='text-primary'>Paid</span>
+                                                }
                                             </td>
 
                                             <td>
                                                 <div className='w-full'>
-                                                <button 
-                                                    onClick={() => handleDelete(allOrders._id)}
-                                                    >
-                                                        <label
-                                                            className="w-8 h-8 bg-red-200 inline-block rounded-full text-center cursor-pointer group hover:bg-red-500 duration-300 mr-1"
-                                                            htmlFor=""
-                                                        >
-                                                            <p className=' mt-2 ml-2 text-red-500 group-hover:text-white duration-300'>
-                                                                <HiTrash></HiTrash>
-                                                            </p>
 
-                                                        </label>
-                                                    </button>
+                                                    {
+                                                        allOrders.price && allOrders.paid ?
+                                                            'Can not Delete After Payment'
+                                                            :
+                                                            <button
+                                                                onClick={() => handleDelete(allOrders._id)}
+                                                            >
+                                                                <label
+                                                                    className="w-8 h-8 bg-red-200 inline-block rounded-full text-center cursor-pointer group hover:bg-red-500 duration-300 mr-1"
+                                                                    htmlFor=""
+                                                                >
+                                                                    <p className=' mt-2 ml-2 text-red-500 group-hover:text-white duration-300'>
+                                                                        <HiTrash></HiTrash>
+                                                                    </p>
+
+                                                                </label>
+                                                            </button>
+
+                                                    }
+
+
+
+
 
                                                 </div>
                                             </td>
+
 
 
                                         </tr>
@@ -164,12 +192,12 @@ const AllOrders = () => {
 
                     </div>
                     {/* <div className=" mt-5">
-          <button className="btn btn-circle mr-1">1</button>
-          <button className="btn btn-circle mr-1">2</button>
-          <button className="btn btn-disabled text-black mr-1">...</button>
-          <button className="btn btn-circle mr-1">99</button>
-          <button className="btn btn-circle mr-1">100</button>
-        </div> */}
+      <button className="btn btn-circle mr-1">1</button>
+      <button className="btn btn-circle mr-1">2</button>
+      <button className="btn btn-disabled text-black mr-1">...</button>
+      <button className="btn btn-circle mr-1">99</button>
+      <button className="btn btn-circle mr-1">100</button>
+    </div> */}
                 </div>
             </div>
 
@@ -178,4 +206,4 @@ const AllOrders = () => {
     );
 };
 
-export default AllOrders;
+export default UserOrders;
