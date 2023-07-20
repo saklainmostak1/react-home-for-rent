@@ -16,11 +16,11 @@ const {user} = useContext(AuthContext)
         <div className=''>
 
 
-            <div className="drawer">
+            <div className="drawer ">
 
                 <input id="my-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
-                    <div className="navbar ">
+                    <div className="navbar shadow-lg bg-slate-400">
                         <div className="navbar-start">
                             <div className="dropdown">
                                 <label tabIndex={0} className="btn btn-ghost btn-circle" htmlFor="my-drawer">
@@ -29,7 +29,7 @@ const {user} = useContext(AuthContext)
 
                             </div>
                         </div>
-                        <div className="navbar-center">
+                        <div className="navbar-center ">
                             <Link to='/' className="btn btn-ghost normal-case text-xl">Home</Link>
                         </div>
                         <div className="navbar-end">
@@ -90,7 +90,7 @@ const {user} = useContext(AuthContext)
                                         </Link>
                                     </li>
                                     <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
-                                        <Link to=''>
+                                        <Link to='/dashboard/user-wise/review'>
                                             Manage   Products Review
                                         </Link>
                                     </li>
@@ -125,6 +125,11 @@ const {user} = useContext(AuthContext)
                                 <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
                                     <Link to='/dashboard/all-users/manage'>
                                         Manage  Users
+                                    </Link>
+                                </li>
+                                <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                    <Link to='/dashboard/users/profile'>
+                                          Users Profile
                                     </Link>
                                 </li>
 

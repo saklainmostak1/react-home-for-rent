@@ -27,6 +27,8 @@ import UserOrders from "../DashBoard/Orders/UserOrders/UserOrders";
 import Payment from "../DashBoard/Orders/Payment/Payment";
 import DisplayError from "../Pages/Shared/DisplayError/DisplayError";
 import AllProductsReviews from "../DashBoard/AllProductsReviews/AllProductsReviews";
+import ManageProductsReviews from "../DashBoard/ManageProductsReviews/ManageProductsReviews";
+import UserProfile from "../DashBoard/Users/UserProfile/UserProfile";
 
 
 export const router = createBrowserRouter([
@@ -115,6 +117,10 @@ export const router = createBrowserRouter([
                 element: <AllProductsReviews></AllProductsReviews>
             },
             {
+                path: '/dashboard/user-wise/review',
+                element: <ManageProductsReviews></ManageProductsReviews>
+            },
+            {
                 path: '/dashboard/update/products/:id',
                 element: <UpdateProducts></UpdateProducts>
             },
@@ -125,6 +131,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/all-users/manage',
                 element: <ManageUsers></ManageUsers>
+            },
+            {
+                path: '/dashboard/users/profile',
+                element: <UserProfile></UserProfile>
             },
             {
                 path: '/dashboard/manage-website/website-review',

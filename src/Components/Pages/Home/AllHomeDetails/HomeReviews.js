@@ -29,7 +29,7 @@ const HomeReviews = () => {
     } = useQuery({
         queryKey: ['homeReview'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5001/home-review?products=${id}`)
+            const res = await fetch(`http://localhost:5001/home-reviews?products=${id}`)
             const data = await res.json()
             return data
         }
@@ -207,10 +207,11 @@ const HomeReviews = () => {
                                             </label>
                                         </div>
                                         <input
-
+                                            defaultValue={user.displayName}
                                             name='userName'
                                             placeholder="Product Name"
                                             type="text"
+                                            disabled
                                             className="input input-bordered mt-1 w-full rounded-sm"
                                         />
                                     </div>
@@ -227,10 +228,11 @@ const HomeReviews = () => {
                                             </label>
                                         </div>
                                         <input
-
+                                            defaultValue={user.email}
                                             name='email'
                                             placeholder="Product Name"
                                             type="text"
+                                            disabled
                                             className="input input-bordered mt-1 w-full rounded-sm"
                                         />
                                     </div>
@@ -273,7 +275,7 @@ const HomeReviews = () => {
                                             </label>
                                         </div>
                                         <input
-                                        disabled
+                                            disabled
                                             defaultValue={homes.image}
                                             name='photoURL'
                                             placeholder="Product Name"
