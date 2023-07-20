@@ -88,14 +88,14 @@ const Nav2 = () => {
                   <span className="md:ml-96 lg:ml-2 ">All Services</span>
                 </Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                   to='/thank-you'
                 >
                   <span className="md:ml-96 lg:ml-2 ">Thank you</span>
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <Link
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
