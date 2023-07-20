@@ -8,9 +8,9 @@ const ManageContactMessage = () => {
 
 
 
-    const { data: allHome = [], isLoading, refetch
+    const { data: contactMessage = [], isLoading, refetch
     } = useQuery({
-        queryKey: ['useres'],
+        queryKey: ['contactMessage'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5001/contact-message')
             const data = await res.json()
@@ -45,9 +45,9 @@ const ManageContactMessage = () => {
 
     const lastPostIndex = currentPage * postsPerPage
     const firstPosIndex = lastPostIndex - postsPerPage
-    const currentPosts = allHome.slice(firstPosIndex, lastPostIndex)
+    const currentPosts = contactMessage.slice(firstPosIndex, lastPostIndex)
 
-    let totalPosts = allHome.length
+    let totalPosts = contactMessage.length
     let pages = []
 
     for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {

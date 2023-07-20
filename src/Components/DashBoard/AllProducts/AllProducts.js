@@ -13,7 +13,7 @@ const AllProducts = () => {
 
     const { data: allHome = [], isLoading, refetch
     } = useQuery({
-        queryKey: ['useres'],
+        queryKey: ['allHome'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5001/allHome')
             const data = await res.json()

@@ -1,60 +1,21 @@
 import React, { useState } from 'react';
-import { toast } from 'react-hot-toast';
-import { HiTrash } from 'react-icons/hi2';
+import '../AllProducts/style.css'
+import { HiTrash, HiEye, HiPencilAlt } from "react-icons/hi";
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 
-const ManageUsers = () => {
+const AllProductsReviews = () => {
 
-
-
-    const { data: manageUsers = [], isLoading, refetch
+    const { data: allProductsReviews = [], isLoading, refetch
     } = useQuery({
-        queryKey: ['manageUsers'],
+        queryKey: ['allProductsReviews'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5001/users')
+            const res = await fetch('http://localhost:5001/all-home-reviews')
             const data = await res.json()
             return data
         }
     })
-    // if(isLoading){
-    //     return <Load></Loading>
-    // }
-
-
-    const handleMakeAdmin = id => {
-        fetch(`http://localhost:5001/users/admin/${id}`, {
-            method: "PUT"
-        })
-        .then(Response => Response.json())
-        .then(data => {
-           if(data.modifiedCount > 0 ){
-            console.log(data);
-            toast.success('Make Admin SuccessFully')
-            refetch()
-           }
-        })
-    }
-
-    const handleDelete = id =>{
-        const proceed = window.confirm('Are You Sure delete')
-            
-           if(proceed){
-            fetch(`http://localhost:5001/users/${id}`, {
-                method: "DELETE",
-                headers: {
-                    authorization: `bearer ${localStorage.getItem('accessToken')}`
-                }
-            })
-            .then(Response => Response.json())
-            .then(data => {
-                if(data.deletedCount > 0){
-                    refetch()
-                    toast.success('Delete Successfully')
-                }
-               
-            })
-           }
-    }
 
 
 
@@ -64,20 +25,45 @@ const ManageUsers = () => {
 
     const lastPostIndex = currentPage * postsPerPage
     const firstPosIndex = lastPostIndex - postsPerPage
-    const currentPosts = manageUsers.slice(firstPosIndex, lastPostIndex)
-
-    let totalPosts = manageUsers.length
+    const currentPosts = allProductsReviews?.slice(firstPosIndex, lastPostIndex)
+    let totalPosts = allProductsReviews.length
     let pages = []
 
     for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
         pages.push(i)
     }
+
+
+    const handleDelete = id => {
+        const proceed = window.confirm('Are You Sure delete')
+
+        if (proceed) {
+            fetch(`http://localhost:5001/home-reviews/${id}`, {
+                method: "DELETE",
+
+            })
+                .then(Response => Response.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        refetch()
+                        toast.success('Delete Successfully')
+                    }
+
+                })
+        }
+    }
+
+
     return (
         <div>
 
             <div className="bg-slate-100 container mx-auto px-5 lg:px-12 py-4">
                 <div className="flex items-center justify-between">
-                    <h1 className="text-2xl font-bold">All Users</h1>
+                    <h1 className="text-2xl font-bold">All Reviews</h1>
+
+
+
+
 
                 </div>
                 <div className="mt-8 bg-white p-7 rounded-xl">
@@ -87,60 +73,62 @@ const ManageUsers = () => {
                             <thead className="bg-white border-b-2">
                                 <tr>
                                     <th className="bg-white"></th>
-                                    <th className="bg-white">Name</th>
+                                    <th className="bg-white">Products</th>
+                                    <th className="bg-white">user Name</th>
                                     <th className="bg-white">Email</th>
-                                    <th className="bg-white">Role</th>
-                                    <th className="bg-white">Manage</th>
-                                    <th className="bg-white">Options</th>
+                                    <th className="bg-white">Rating</th>
+                                    <th className="bg-white">Message</th>
 
+                                    <th className="bg-white ">Options</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
+                                    // loading ?
 
-                                    currentPosts?.map((alluser, i) =>
+                                    //   <button className="btn loading m-10 ">loading</button>
+                                    //   :
+                                    currentPosts?.map((product, i) =>
 
                                         <tr>
                                             <td>
                                                 {i + 1}
                                             </td>
+
                                             <td>
                                                 <div className="flex items-center">
                                                     <div className="avatar mr-2">
                                                         <div className="w-12 rounded">
-                                                            <img src={alluser.photo
+                                                            <img src={product.photo
                                                             } alt='' />
                                                         </div>
                                                     </div>
                                                     <p className="text-slate-400 text-sm">
-                                                        {alluser.name}
+                                                        {product.productName}
                                                     </p>
                                                 </div>
                                             </td>
-                                            <td>{alluser.email}</td>
-                                            <td>{alluser.role}</td>
-                                            <td className="w-full">
-                                              {
-                                                alluser?.role !== 'admin' && 
+                                            <td>
+                                                <p>{product.name}</p>
+                                            </td>
+                                            <td>
+                                                <p>{product.email}</p>
+                                            </td>
+                                            <td>
 
+                                                {product.rating}
 
-                                                <div className="flex items-center ">
-
-                                                <button
-                                                    onClick={() => handleMakeAdmin(alluser._id)}
-                                                    className='border-none btn btn-xs bg-sky-500 hover:bg-sky-700'>
-                                                    Make Admin
-                                                </button>
-
-                                            </div>
-                                              }
+                                            </td>
+                                            <td>
+                                                {product.message}
                                             </td>
                                             <td className="w-full">
                                                 <div className="flex items-center ">
 
+
+
                                                     <button
-                                                    
-                                                    onClick={() => handleDelete(alluser._id)}
+                                                        onClick={() => handleDelete(product._id)}
                                                     >
                                                         <label
                                                             className="w-8 h-8 bg-red-200 inline-block rounded-full text-center cursor-pointer group hover:bg-red-500 duration-300 mr-1"
@@ -155,9 +143,6 @@ const ManageUsers = () => {
 
                                                 </div>
                                             </td>
-
-
-
                                         </tr>
                                     )
                                 }
@@ -194,4 +179,4 @@ const ManageUsers = () => {
     );
 };
 
-export default ManageUsers;
+export default AllProductsReviews;

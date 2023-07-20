@@ -10,9 +10,9 @@ const AllWebsiteReview = () => {
 
 
 
-    const { data: allHome = [], isLoading, refetch
+    const { data: allWebReview = [], isLoading, refetch
     } = useQuery({
-        queryKey: ['useres'],
+        queryKey: ['allWebReview'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5001/website-review')
             const data = await res.json()
@@ -47,9 +47,9 @@ const AllWebsiteReview = () => {
 
     const lastPostIndex = currentPage * postsPerPage
     const firstPosIndex = lastPostIndex - postsPerPage
-    const currentPosts = allHome.slice(firstPosIndex, lastPostIndex)
+    const currentPosts = allWebReview.slice(firstPosIndex, lastPostIndex)
 
-    let totalPosts = allHome.length
+    let totalPosts = allWebReview.length
     let pages = []
 
     for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {

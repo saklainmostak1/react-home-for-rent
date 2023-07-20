@@ -1,6 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Form, Link, useParams } from 'react-router-dom';
 import { IoIosStar } from "react-icons/io";
+import { AuthContext } from '../../../Authentication/AuthProvider';
+import { toast } from 'react-hot-toast';
+import { useQuery } from 'react-query';
+import AllHome from '../AllHome/AllHome';
 
 const HomeReviews = () => {
 
@@ -18,6 +22,60 @@ const HomeReviews = () => {
 
 
     console.log(homes);
+
+
+
+    const { data: homeReview = [], isLoading, refetch
+    } = useQuery({
+        queryKey: ['homeReview'],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5001/home-review?products=${id}`)
+            const data = await res.json()
+            return data
+        }
+    })
+
+    const { user } = useContext(AuthContext)
+
+
+
+
+
+    const addReview = event => {
+        event.preventDefault()
+        const form = event.target
+        const name = form.userName.value
+        const email = form.email.value
+        const photo = form.photoURL.value
+        const rating = form.rating.value
+        const message = form.message.value
+        const productsName = form.productsName.value
+
+
+        console.log(name, email, rating, message);
+
+        const addReview = {
+            products: id, name, email, rating, message, productName: productsName, photo
+        }
+        fetch('http://localhost:5001/home-review', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(addReview)
+
+        })
+            .then(Response => Response.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged === true) {
+                    toast.success('Sucessfully add')
+                    refetch()
+                }
+            })
+            .catch(error => console.error(error))
+
+    }
 
 
     return (
@@ -76,25 +134,43 @@ const HomeReviews = () => {
                                             </thead>
                                             <tbody>
 
+                                                {
+                                                    homeReview.map((review) =>
 
-                                                <tr>
+                                                        <tr>
 
 
-                                                    <td>
-                                                        <div className="flex items-center">
-                                                            <div className="avatar mr-2">
-                                                                <div className="w-12 rounded">
-                                                                    <img src='' alt='' />
+                                                            <td>
+                                                                <div className="flex items-center">
+                                                                    <div className="avatar mr-2">
+                                                                        <div className="w-12 rounded">
+                                                                            <img src={user.photoURL} alt='' />
+                                                                        </div>
+                                                                    </div>
+                                                                    <p className="text-slate-400 text-sm">
+                                                                        { }
+                                                                    </p>
                                                                 </div>
-                                                            </div>
-                                                            <p className="text-slate-400 text-sm">
-                                                                { }
-                                                            </p>
-                                                        </div>
-                                                    </td>
+                                                            </td>
+                                                            <td>
+                                                                {review.email}
+                                                            </td>
+                                                            <td>
+                                                                {review.name}
+                                                            </td>
+
+                                                            <td>
+                                                                {review.message}
+                                                            </td>
+                                                            <td>
+                                                                {review.rating}
+                                                            </td>
 
 
-                                                </tr>
+
+                                                        </tr>
+                                                    )
+                                                }
 
 
                                             </tbody>
@@ -108,9 +184,9 @@ const HomeReviews = () => {
                         </div>
                     </div>
                 </div>
-                
+
                 <div className='max-w-[1000px] mx-auto'>
-                    <form action="">
+                    <form action="" onSubmit={addReview}>
 
                         <div className='container mx-auto gap-10 p-2 mb-20 mt-10'>
 
@@ -132,7 +208,7 @@ const HomeReviews = () => {
                                         </div>
                                         <input
 
-
+                                            name='userName'
                                             placeholder="Product Name"
                                             type="text"
                                             className="input input-bordered mt-1 w-full rounded-sm"
@@ -144,7 +220,7 @@ const HomeReviews = () => {
                                     <div className=" items-center">
                                         <div className="w-60">
                                             <label htmlFor="">
-                                                Your  Name
+                                                Your  Email
                                                 <sup>
                                                     <span className="text-red-500 mr-1">*</span>
                                                 </sup>
@@ -152,7 +228,7 @@ const HomeReviews = () => {
                                         </div>
                                         <input
 
-
+                                            name='email'
                                             placeholder="Product Name"
                                             type="text"
                                             className="input input-bordered mt-1 w-full rounded-sm"
@@ -160,11 +236,62 @@ const HomeReviews = () => {
                                     </div>
 
                                 </div>
+
+
+
+
                                 <div className='p-5'>
                                     <div className=" items-center">
                                         <div className="w-60">
                                             <label htmlFor="">
-                                                Your  Name
+                                                Products Name
+                                                <sup>
+                                                    <span className="text-red-500 mr-1">*</span>
+                                                </sup>
+                                            </label>
+                                        </div>
+                                        <input
+                                            defaultValue={homes.name}
+                                            disabled
+                                            name='productsName'
+                                            placeholder="Product Name"
+                                            type="text"
+                                            className="input input-bordered mt-1 w-full rounded-sm"
+                                        />
+                                    </div>
+
+                                </div>
+
+                                <div className='p-5'>
+                                    <div className=" items-center">
+                                        <div className="w-60">
+                                            <label htmlFor="">
+                                                Products Image
+                                                <sup>
+                                                    <span className="text-red-500 mr-1">*</span>
+                                                </sup>
+                                            </label>
+                                        </div>
+                                        <input
+                                        disabled
+                                            defaultValue={homes.image}
+                                            name='photoURL'
+                                            placeholder="Product Name"
+                                            type="text"
+                                            className="input input-bordered mt-1 w-full rounded-sm"
+                                        />
+                                    </div>
+
+                                </div>
+
+
+
+
+                                <div className='p-5'>
+                                    <div className=" items-center">
+                                        <div className="w-60">
+                                            <label htmlFor="">
+                                                Rating
                                                 <sup>
                                                     <span className="text-red-500 mr-1">*</span>
                                                 </sup>
@@ -172,7 +299,7 @@ const HomeReviews = () => {
                                         </div>
                                         <input
 
-
+                                            name='rating'
                                             placeholder="Product Name"
                                             type="text"
                                             className="input input-bordered mt-1 w-full rounded-sm"
@@ -184,15 +311,15 @@ const HomeReviews = () => {
                                     <div className=" items-center">
                                         <div className="w-60">
                                             <label htmlFor="">
-                                                Your  Name
+                                                Review
                                                 <sup>
                                                     <span className="text-red-500 mr-1">*</span>
                                                 </sup>
                                             </label>
                                         </div>
-                                       
-                                         <textarea
-                                            name='additionalInfo'
+
+                                        <textarea
+                                            name='message'
                                             type='text'
                                             id=""
                                             className="textarea textarea-bordered w-full"
@@ -204,7 +331,8 @@ const HomeReviews = () => {
                                 </div>
 
                                 <div className='text-center mb-5 p-5'>
-                                    <input type="button" value="Add Review" className='btn w-full bg-[#1697DA] border-none hover:bg-[#57a2ca]'/>
+
+                                    <input type="submit" value="Add Review" className='btn w-full bg-[#1697DA] border-none hover:bg-[#57a2ca]' />
                                     {/* <button className='btn w-full bg-[#1697DA] border-none hover:bg-[#57a2ca]'>Add Review</button> */}
                                 </div>
                             </div>

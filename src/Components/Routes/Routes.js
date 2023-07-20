@@ -26,6 +26,7 @@ import AllOrders from "../DashBoard/Orders/AllOrders/AllOrders";
 import UserOrders from "../DashBoard/Orders/UserOrders/UserOrders";
 import Payment from "../DashBoard/Orders/Payment/Payment";
 import DisplayError from "../Pages/Shared/DisplayError/DisplayError";
+import AllProductsReviews from "../DashBoard/AllProductsReviews/AllProductsReviews";
 
 
 export const router = createBrowserRouter([
@@ -108,6 +109,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/allProducts',
                 element: <AllProducts></AllProducts>
+            },
+            {
+                path: '/dashboard/allProducts/review',
+                element: <AllProductsReviews></AllProductsReviews>
             },
             {
                 path: '/dashboard/update/products/:id',
