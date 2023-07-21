@@ -1,9 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { AuthContext } from '../../../Authentication/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+import { HiPencilAlt } from 'react-icons/hi';
 
 const UserProfile = () => {
+
+
 
     const { user } = useContext(AuthContext)
 
@@ -17,14 +21,50 @@ const UserProfile = () => {
         }
     })
 
+    const [editProfile, setEditProfile] = useState()
+
+    // useEffect(() => {
+    //     fetch(`http://localhost:5001/users/${id}`)
+    //       .then(Response => Response.json())
+    //       .then(data => setEditProfile(data))
+    //   }, [id])
+
+
+    const handleEditHome = event => {
+        event.preventDefault()
+        fetch(`http://localhost:5001/users/${editProfile._id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(editProfile)
+        })
+            .then(Response => Response.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    console.log(data)
+                    toast.success('Successfully Update!');
+                }
+
+            })
+    }
+
+    const handleChange = event => {
+        const field = event.target.name
+        const value = event.target.value
+        const review = { ...editProfile }
+        review[field] = value
+        setEditProfile(review)
+    }
 
     return (
         <div className=''>
             <h2 className='text-4xl text-center bg-black p-5 mt-10 text-white'>User Profile</h2>
 
-            <div className='lg:flex  max-w-[1400px] mx-auto p-10 bg-slate-300 mt-10'>
+            <div className=' max-w-[1400px] mx-auto p-10 bg-slate-300 mt-10'>
 
-                <div className='lg:w-[50%]'>
+                <div className='lg:w-[50%] mx-auto'>
                     <div className=' '>
 
                         {
@@ -45,6 +85,21 @@ const UserProfile = () => {
                                         <p className='mt-5 text-xl'>Role : {profile?.role}</p>
 
                                     </div>
+                                    <div className='flex justify-center mb-5'>
+                                        <Link to={`/dashboard/users/profile/update/${profile._id}`}>
+
+                                            <label
+                                                className="w-8 h-8 bg-blue-200 inline-block rounded-full text-center cursor-pointer group hover:bg-blue-500 duration-300 mr-1"
+                                                htmlFor=""
+                                            >
+                                                
+                                                <p className=' mt-2 ml-2 text-blue-700 group-hover:text-white duration-300'>
+                                                    <HiPencilAlt></HiPencilAlt>
+                                                </p>
+                                            </label>
+                                        </Link>
+
+                                    </div>
                                 </div>
 
                             )
@@ -52,61 +107,7 @@ const UserProfile = () => {
 
                     </div>
                 </div>
-                <div className='lg:w-[50%] '>
-                    <div className="mt-8 bg-white p-7 rounded-xl ">
-                        <div className="border-b-2">
-                            <h2 className="font-medium text-xl mb-3 ">Edit Profile From Here</h2>
-                        </div>
-                        {
-                            usersProfile.map((user) =>
 
-                                <div>
-                                    <form action="" >
-                                        <div className="mt-5">
-                                            {" "}
-                                            <label htmlFor="">Name</label> <br />
-                                            <input
-                                                defaultValue={user.name}
-                                                name="name"
-                                                type="text"
-                                                className="input input-bordered rounded-none w-full mt-3"
-                                                placeholder="Name"
-                                            />
-                                        </div>
-                                        <div className="mt-5">
-                                            {" "}
-                                            <label htmlFor="">Image</label> <br />
-                                            <input
-                                            defaultValue={user.photo}
-                                                name="image"
-                                                type="text"
-                                                className="input input-bordered rounded-none w-full mt-3"
-                                                placeholder="Name"
-                                            />
-                                        </div>
-                                        <div className="mt-5">
-                                            {" "}
-                                            <label htmlFor="">Email</label> <br />
-                                            <input
-                                            defaultValue={user.email}
-                                                name="email"
-                                                type="text"
-                                                className="input input-bordered rounded-none w-full mt-3"
-                                                placeholder="Name"
-                                            />
-                                        </div>
-                                        <div className="text-right mt-5 rounded-md ">
-                                            <button className="text-white btn bg-[#f77b0b] border-0 px-6 hover:bg-[#df6d09] duration-200">
-                                                Save
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-
-                            )
-                        }
-                    </div>
-                </div>
             </div>
         </div>
     );

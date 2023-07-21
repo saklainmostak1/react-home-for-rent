@@ -29,6 +29,8 @@ import DisplayError from "../Pages/Shared/DisplayError/DisplayError";
 import AllProductsReviews from "../DashBoard/AllProductsReviews/AllProductsReviews";
 import ManageProductsReviews from "../DashBoard/ManageProductsReviews/ManageProductsReviews";
 import UserProfile from "../DashBoard/Users/UserProfile/UserProfile";
+import UpdateProductsReviews from "../DashBoard/ManageProductsReviews/UpdateProductsReviews";
+import EditProfile from "../DashBoard/Users/UserProfile/EditProfile";
 
 
 export const router = createBrowserRouter([
@@ -121,6 +123,10 @@ export const router = createBrowserRouter([
                 element: <ManageProductsReviews></ManageProductsReviews>
             },
             {
+                path: '/dashboard/user-wise/review/update/:id',
+                element: <UpdateProductsReviews></UpdateProductsReviews>
+            },
+            {
                 path: '/dashboard/update/products/:id',
                 element: <UpdateProducts></UpdateProducts>
             },
@@ -135,6 +141,12 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/users/profile',
                 element: <UserProfile></UserProfile>
+            },
+            {
+                path: '/dashboard/users/profile/update/:id',
+                element: <EditProfile></EditProfile>,
+                loader: ({params}) => fetch(`http://localhost:5001/users/${params.id}`)
+
             },
             {
                 path: '/dashboard/manage-website/website-review',

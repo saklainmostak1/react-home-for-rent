@@ -8,8 +8,8 @@ import { AuthContext } from '../../Authentication/AuthProvider';
 
 const ManageProductsReviews = () => {
 
-const {user} = useContext(AuthContext)
-    
+    const { user } = useContext(AuthContext)
+
     const { data: allProductsReviews = [], isLoading, refetch
     } = useQuery({
         queryKey: ['allProductsReviews'],
@@ -60,125 +60,137 @@ const {user} = useContext(AuthContext)
     return (
         <div>
 
-        <div className="bg-slate-100 container mx-auto px-5 lg:px-12 py-4">
-            <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-bold">All Reviews</h1>
+            <div className="bg-slate-100 container mx-auto px-5 lg:px-12 py-4">
+                <div className="flex items-center justify-between">
+                    <h1 className="text-2xl font-bold">All Reviews</h1>
 
 
 
 
 
-            </div>
-            <div className="mt-8 bg-white p-7 rounded-xl">
+                </div>
+                <div className="mt-8 bg-white p-7 rounded-xl">
 
-                <div className="overflow-x-auto">
-                    <table className="table w-full">
-                        <thead className="bg-white border-b-2">
-                            <tr>
-                                <th className="bg-white"></th>
-                                <th className="bg-white">Products</th>
-                                <th className="bg-white">user Name</th>
-                                <th className="bg-white">Email</th>
-                                <th className="bg-white">Rating</th>
-                                <th className="bg-white">Message</th>
+                    <div className="overflow-x-auto">
+                        <table className="table w-full">
+                            <thead className="bg-white border-b-2">
+                                <tr>
+                                    <th className="bg-white"></th>
+                                    <th className="bg-white">Products</th>
+                                    <th className="bg-white">user Name</th>
+                                    <th className="bg-white">Email</th>
+                                    <th className="bg-white">Rating</th>
+                                    <th className="bg-white">Message</th>
 
-                                <th className="bg-white ">Options</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                // loading ?
+                                    <th className="bg-white ">Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    // loading ?
 
-                                //   <button className="btn loading m-10 ">loading</button>
-                                //   :
-                                currentPosts?.map((product, i) =>
+                                    //   <button className="btn loading m-10 ">loading</button>
+                                    //   :
+                                    currentPosts?.map((product, i) =>
 
-                                    <tr>
-                                        <td>
-                                            {i + 1}
-                                        </td>
+                                        <tr>
+                                            <td>
+                                                {i + 1}
+                                            </td>
 
-                                        <td>
-                                            <div className="flex items-center">
-                                                <div className="avatar mr-2">
-                                                    <div className="w-12 rounded">
-                                                        <img src={product.photo
-                                                        } alt='' />
+                                            <td>
+                                                <div className="flex items-center">
+                                                    <div className="avatar mr-2">
+                                                        <div className="w-12 rounded">
+                                                            <img src={product.photo
+                                                            } alt='' />
+                                                        </div>
                                                     </div>
+                                                    <p className="text-slate-400 text-sm">
+                                                        {product.productName}
+                                                    </p>
                                                 </div>
-                                                <p className="text-slate-400 text-sm">
-                                                    {product.productName}
-                                                </p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p>{product.name}</p>
-                                        </td>
-                                        <td>
-                                            <p>{product.email}</p>
-                                        </td>
-                                        <td>
+                                            </td>
+                                            <td>
+                                                <p>{product.name}</p>
+                                            </td>
+                                            <td>
+                                                <p>{product.email}</p>
+                                            </td>
+                                            <td>
 
-                                            {product.rating}
+                                                {product.rating}
 
-                                        </td>
-                                        <td>
-                                            {product.message}
-                                        </td>
-                                        <td className="w-full">
-                                            <div className="flex items-center ">
+                                            </td>
+                                            <td>
+                                                {product.message}
+                                            </td>
+                                            <td className="w-full">
+                                                <div className="flex items-center ">
+
+                                                    <Link to={`/dashboard/user-wise/review/update/${product._id}`}>
+
+                                                        <label
+                                                            className="w-8 h-8 bg-blue-200 inline-block rounded-full text-center cursor-pointer group hover:bg-blue-500 duration-300 mr-1"
+                                                            htmlFor=""
+                                                        >
+                                                            <p className=' mt-2 ml-2 text-blue-700 group-hover:text-white duration-300'>
+                                                                <HiPencilAlt></HiPencilAlt>
+                                                            </p>
+                                                        </label>
+                                                    </Link>
 
 
-
-                                                <button
-                                                    onClick={() => handleDelete(product._id)}
-                                                >
-                                                    <label
-                                                        className="w-8 h-8 bg-red-200 inline-block rounded-full text-center cursor-pointer group hover:bg-red-500 duration-300 mr-1"
-                                                        htmlFor=""
+                                                    <button
+                                                        onClick={() => handleDelete(product._id)}
                                                     >
-                                                        <p className=' mt-2 ml-2 text-red-500 group-hover:text-white duration-300'>
-                                                            <HiTrash></HiTrash>
-                                                        </p>
+                                                        <label
+                                                            className="w-8 h-8 bg-red-200 inline-block rounded-full text-center cursor-pointer group hover:bg-red-500 duration-300 mr-1"
+                                                            htmlFor=""
+                                                        >
+                                                            <p className=' mt-2 ml-2 text-red-500 group-hover:text-white duration-300'>
+                                                                <HiTrash></HiTrash>
+                                                            </p>
 
-                                                    </label>
-                                                </button>
+                                                        </label>
+                                                    </button>
 
-                                            </div>
-                                        </td>
-                                    </tr>
-                                )
-                            }
 
-                        </tbody>
-                    </table>
-                </div>
-                <div className=" mt-5 paigination">
-                    {
-                        pages.map((page, index) =>
-                            <button
-                                key={index + 1}
-                                onClick={() => setCurrentPage(page)}
-                                className=
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    )
+                                }
 
-                                {page === currentPage ? 'active' : ''}
-                            >{page}</button>
-                        )
-                    }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className=" mt-5 paigination">
+                        {
+                            pages.map((page, index) =>
+                                <button
+                                    key={index + 1}
+                                    onClick={() => setCurrentPage(page)}
+                                    className=
 
-                </div>
-                {/* <div className=" mt-5">
+                                    {page === currentPage ? 'active' : ''}
+                                >{page}</button>
+                            )
+                        }
+
+                    </div>
+                    {/* <div className=" mt-5">
       <button className="btn btn-circle mr-1">1</button>
       <button className="btn btn-circle mr-1">2</button>
       <button className="btn btn-disabled text-black mr-1">...</button>
       <button className="btn btn-circle mr-1">99</button>
       <button className="btn btn-circle mr-1">100</button>
     </div> */}
+                </div>
             </div>
+
+
         </div>
-
-
-    </div>
     );
 };
 
