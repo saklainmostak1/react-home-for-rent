@@ -10,9 +10,11 @@ const WhatWeSay = () => {
                     <div className="hero-overlay bg-opacity-60"></div>
                     <div className="hero-content text-center text-neutral-content">
                         <div className="">
-                            <h1 className="mb-5 text-3xl font-bold">Hello there welcome to my home made food website</h1>
-                            <p className="mb-5">Homemade food is usually prepared with natural ingredients compared to commercially prepared food. Plainly, the food has its taste however those are ready using unprocessed foods that are by no means healthy. For example: the fast foods comprises great deal of sugar, fat and sodium.</p>
-                             
+                            <h1 className="mb-5 text-3xl font-bold">Things To Consider Before House Rent in Dhaka City</h1>
+                            <p className="mb-5">Furnished Accommodation
+                                Explore a variety of Modern, Stylish, Safe & Comfortable Furnished homes without leaving yours. RENTS Incorporation furnishing make it easy to find flexible housing without sacrificing quality. Rental
+                                Find your new place with thousands of constantly updated listings, robust filters and impressive photo experience with RENTS Incorporation.</p>
+
                         </div>
                     </div>
                 </div>
