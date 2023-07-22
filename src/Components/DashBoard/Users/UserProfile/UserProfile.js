@@ -4,6 +4,7 @@ import { AuthContext } from '../../../Authentication/AuthProvider';
 import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { HiPencilAlt } from 'react-icons/hi';
+import EditProfile from './EditProfile';
 
 const UserProfile = () => {
 
@@ -21,45 +22,42 @@ const UserProfile = () => {
         }
     })
 
-    const [editProfile, setEditProfile] = useState()
-
-    // useEffect(() => {
-    //     fetch(`http://localhost:5001/users/${id}`)
-    //       .then(Response => Response.json())
-    //       .then(data => setEditProfile(data))
-    //   }, [id])
+    // const [editProfile, setEditProfile] = useState()
 
 
-    const handleEditHome = event => {
-        event.preventDefault()
-        fetch(`http://localhost:5001/users/${editProfile._id}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(editProfile)
-        })
-            .then(Response => Response.json())
-            .then(data => {
-                console.log(data)
-                if (data.modifiedCount > 0) {
-                    console.log(data)
-                    toast.success('Successfully Update!');
-                }
 
-            })
-    }
 
-    const handleChange = event => {
-        const field = event.target.name
-        const value = event.target.value
-        const review = { ...editProfile }
-        review[field] = value
-        setEditProfile(review)
-    }
+    // const handleEditHome = event => {
+    //     event.preventDefault()
+    //     fetch(`http://localhost:5001/users/${editProfile._id}`, {
+    //         method: 'PUT',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(editProfile)
+    //     })
+    //         .then(Response => Response.json())
+    //         .then(data => {
+    //             console.log(data)
+    //             if (data.modifiedCount > 0) {
+    //                 console.log(data)
+    //                 toast.success('Successfully Update!');
+    //             }
+
+    //         })
+    // }
+
+    // const handleChange = event => {
+    //     const field = event.target.name
+    //     const value = event.target.value
+    //     const review = { ...editProfile }
+    //     review[field] = value
+    //     setEditProfile(review)
+    // }
 
     return (
-        <div className=''>
+       <div>
+         <div className=''>
             <h2 className='text-4xl text-center bg-black p-5 mt-10 text-white'>User Profile</h2>
 
             <div className=' max-w-[1400px] mx-auto p-10 bg-slate-300 mt-10'>
@@ -110,6 +108,8 @@ const UserProfile = () => {
 
             </div>
         </div>
+       
+       </div>
     );
 };
 

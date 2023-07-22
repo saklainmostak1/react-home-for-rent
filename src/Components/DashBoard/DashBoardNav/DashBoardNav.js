@@ -1,16 +1,21 @@
 import React from 'react';
-import { Link,  Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import useAdmin from '../../hooks/useAdmin';
 import { useContext } from 'react';
 import { AuthContext } from '../../Authentication/AuthProvider';
 import useBuyers from '../../hooks/useBuyers';
+import useSeller from '../../hooks/useSeller';
 
 
 const DashBoardNav = () => {
 
-const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const [isAdmin] = useAdmin(user?.email)
     const [isBuyer] = useBuyers(user?.email)
+    const [isSeller] = useSeller(user?.email)
+
+
+
 
     return (
         <div className=''>
@@ -73,13 +78,39 @@ const {user} = useContext(AuthContext)
                             <div className="collapse-content ">
                                 <ul>
 
-                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
-                                        <Link to='/dashboard/addProducts'>
-                                            Add A Products
-                                        </Link>
-                                    </li>
+                                  {
+                                  isSeller && 
 
+
+                                  <>
                                     <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                    <Link to='/dashboard/addProducts'>
+                                        Add A Products
+                                    </Link>
+                                </li>
+                                  </>
+                                  }
+
+                                  {
+                                  isAdmin && 
+
+
+                                  <>
+                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                    <Link to='/dashboard/addProducts'>
+                                        Add A Products
+                                    </Link>
+                                </li>
+                                  </>
+                                  }
+
+
+
+                                  {
+                                    isAdmin && 
+
+                                    <>
+                                      <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
                                         <Link to='/dashboard/allProducts'>
                                             All Products
                                         </Link>
@@ -89,11 +120,27 @@ const {user} = useContext(AuthContext)
                                             All   Products Review
                                         </Link>
                                     </li>
-                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                    
+                                    </>
+                                  }
+
+                                    {
+                                        isBuyer &&
+                                        <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
                                         <Link to='/dashboard/user-wise/review'>
-                                            Manage   Products Review
+                                            User  Products Review
                                         </Link>
                                     </li>
+                                    }
+
+                                    {
+                                        isSeller &&
+                                        <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                        <Link to='/dashboard/user-wise/review'>
+                                            User  Products Review
+                                        </Link>
+                                    </li>
+                                    }
 
 
 
@@ -101,15 +148,122 @@ const {user} = useContext(AuthContext)
                             </div>
                         </div>
 
-{/* 
+                        {/* 
                        {
                         isAdmin &&  */}
+
+                        <div className="collapse ">
+                            <input type="checkbox" className="peer" />
+                            <div className="collapse-title flex justify-between w-[124%] hover:text-[#ff8084]">
+                                <span>
+                                    <i class="fa-solid fa-cart-shopping text-xs w-[20px]"></i> Users
+                                </span>{" "}
+                                <i className="fa-solid fa-angle-right"></i>
+                            </div>
+                            <div className="collapse-content ">
+                                <ul>
+
+                                   {
+                                    isAdmin && 
+                                    <>
+                                     <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                        <Link to='/dashboard/all-users'>
+                                            All Users
+                                        </Link>
+                                    </li>
+
+                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                        <Link to='/dashboard/all-users/manage'>
+                                            Manage  Users
+                                        </Link>
+                                    </li>
+                                    
+                                    </>
+                                   }
+                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                        <Link to='/dashboard/users/profile'>
+                                            Users Profile
+                                        </Link>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+
+
+                        {/* {
+                    isBuyer &&  */}
+
+                        <div className="collapse ">
+                            
+                           {
+                             isAdmin &&
+                             <>
+                             <input type="checkbox" className="peer" />
+                             <div className="collapse-title flex justify-between w-[124%] hover:text-[#ff8084]">
+                             <span>
+                                 <i class="fa-solid fa-cart-shopping text-xs w-[20px]"></i> Orders
+                             </span>{" "}
+                             <i className="fa-solid fa-angle-right"></i>
+                         </div>
+                             </>
+
+                           }
+                           {
+                             isBuyer &&
+                             <>
+                             <input type="checkbox" className="peer" />
+                             <div className="collapse-title flex justify-between w-[124%] hover:text-[#ff8084]">
+                             <span>
+                                 <i class="fa-solid fa-cart-shopping text-xs w-[20px]"></i> Orders
+                             </span>{" "}
+                             <i className="fa-solid fa-angle-right"></i>
+                         </div>
+                             </>
+
+                           }
+                          
+                            <div className="collapse-content ">
+                                <ul>
+
+                                {
+                                    isAdmin &&
+
+                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                    <Link to='/dashboard/orders/all-orders'>
+                                        All Orders
+                                    </Link>
+                                </li>
+                                }
+                                  {
+                                    isBuyer &&
+                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                    <Link to='/dashboard/orders/user-orders'>
+                                        My Orders
+                                    </Link>
+                                </li>
+                                  }
+                                    {/* 
+                            <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                <Link to=''>
+                                    Manage  Orders
+                                </Link>
+                            </li> */}
+
+                                </ul>
+                            </div>
+                        </div>
+                        {/* } */}
+
+                    {
+                        isAdmin && 
 
                         <div className="collapse ">
                         <input type="checkbox" className="peer" />
                         <div className="collapse-title flex justify-between w-[124%] hover:text-[#ff8084]">
                             <span>
-                                <i class="fa-solid fa-cart-shopping text-xs w-[20px]"></i> Users
+                                <i class="fa-solid fa-cart-shopping text-xs w-[20px]"></i> Manage Website
                             </span>{" "}
                             <i className="fa-solid fa-angle-right"></i>
                         </div>
@@ -117,121 +271,50 @@ const {user} = useContext(AuthContext)
                             <ul>
 
                                 <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
-                                    <Link to='/dashboard/all-users'>
-                                        All Users
-                                    </Link>
-                                </li>
-
-                                <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
-                                    <Link to='/dashboard/all-users/manage'>
-                                        Manage  Users
+                                    <Link to='/dashboard/manage-website/website-review'>
+                                        All Website Review
                                     </Link>
                                 </li>
                                 <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
-                                    <Link to='/dashboard/users/profile'>
-                                          Users Profile
+                                    <Link to='/dashboard/manage-website/contact-message'>
+                                        ContactMessage
                                     </Link>
                                 </li>
 
                             </ul>
                         </div>
                     </div>
-                       
+                    }
 
-
-                   {/* {
-                    isBuyer &&  */}
-
-                    <div className="collapse ">
-                    <input type="checkbox" className="peer" />
-                    <div className="collapse-title flex justify-between w-[124%] hover:text-[#ff8084]">
-                        <span>
-                            <i class="fa-solid fa-cart-shopping text-xs w-[20px]"></i> Orders
-                        </span>{" "}
-                        <i className="fa-solid fa-angle-right"></i>
-                    </div>
-                    <div className="collapse-content ">
-                        <ul>
-
-                            <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
-                                <Link to='/dashboard/orders/all-orders'>
-                                    All Orders
-                                </Link>
-                            </li>
-                            <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
-                                <Link to='/dashboard/orders/user-orders'>
-                                    My Orders
-                                </Link>
-                            </li>
-
-                            <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
-                                <Link to=''>
-                                    Manage  Orders
-                                </Link>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-                   {/* } */}
+                    
 
                         <div className="collapse ">
-                            <input type="checkbox" className="peer" />
-                            <div className="collapse-title flex justify-between w-[124%] hover:text-[#ff8084]">
-                                <span>
-                                    <i class="fa-solid fa-cart-shopping text-xs w-[20px]"></i> Manage Website
-                                </span>{" "}
-                                <i className="fa-solid fa-angle-right"></i>
-                            </div>
-                            <div className="collapse-content ">
-                                <ul>
-
-                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
-                                        <Link to='/dashboard/manage-website/website-review'>
-                                            All Website Review
-                                        </Link>
-                                    </li>
-                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
-                                        <Link to='/dashboard/manage-website/contact-message'>
-                                          ContactMessage
-                                        </Link>
-                                    </li>
-
-                                </ul>
-                            </div>
+                        <input type="checkbox" className="peer" />
+                        <div className="collapse-title flex justify-between w-[124%] hover:text-[#ff8084]">
+                            <span>
+                                <i class="fa-solid fa-cart-shopping text-xs w-[20px]"></i> Payment
+                            </span>{" "}
+                            <i className="fa-solid fa-angle-right"></i>
                         </div>
+                        <div className="collapse-content ">
+                            <ul>
 
-                        <div className="collapse ">
-                            <input type="checkbox" className="peer" />
-                            <div className="collapse-title flex justify-between w-[124%] hover:text-[#ff8084]">
-                                <span>
-                                    <i class="fa-solid fa-cart-shopping text-xs w-[20px]"></i> Payment
-                                </span>{" "}
-                                <i className="fa-solid fa-angle-right"></i>
-                            </div>
-                            <div className="collapse-content ">
-                                <ul>
+                                <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                    <Link to=''>
+                                        Paid Products
+                                    </Link>
+                                </li>
 
-                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
-                                        <Link to=''>
-                                            Paid Products
-                                        </Link>
-                                    </li>
+                                <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
+                                    <Link to=''>
+                                        Unpaid Products
+                                    </Link>
+                                </li>
 
-                                    <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
-                                        <Link to=''>
-                                            Unpaid Products
-                                        </Link>
-                                    </li>
-
-                                </ul>
-                            </div>
+                            </ul>
                         </div>
-
-
-
-
-                     
+                    </div>
+ 
                     </ul>
 
                 </div>

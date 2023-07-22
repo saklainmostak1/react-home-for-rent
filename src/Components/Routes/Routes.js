@@ -31,6 +31,8 @@ import ManageProductsReviews from "../DashBoard/ManageProductsReviews/ManageProd
 import UserProfile from "../DashBoard/Users/UserProfile/UserProfile";
 import UpdateProductsReviews from "../DashBoard/ManageProductsReviews/UpdateProductsReviews";
 import EditProfile from "../DashBoard/Users/UserProfile/EditProfile";
+import AdminRoute from "./AdminRoute/AdminRoute";
+import SellerRoutes from "./SellerRoutes/SellerRoutes";
 
 
 export const router = createBrowserRouter([
@@ -104,69 +106,70 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element: <Dashboard></Dashboard>
+                element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>
             },
             {
                 path: '/dashboard/addProducts',
                 element: <AddAProducts></AddAProducts>
             },
+            
             {
                 path: '/dashboard/allProducts',
-                element: <AllProducts></AllProducts>
+                element: <AdminRoute><AllProducts></AllProducts></AdminRoute>
             },
             {
                 path: '/dashboard/allProducts/review',
-                element: <AllProductsReviews></AllProductsReviews>
+                element: <AdminRoute><AllProductsReviews></AllProductsReviews></AdminRoute>
             },
             {
                 path: '/dashboard/user-wise/review',
-                element: <ManageProductsReviews></ManageProductsReviews>
+                element: <PrivateRoutes><ManageProductsReviews></ManageProductsReviews></PrivateRoutes>
             },
             {
                 path: '/dashboard/user-wise/review/update/:id',
-                element: <UpdateProductsReviews></UpdateProductsReviews>
+                element: <PrivateRoutes><UpdateProductsReviews></UpdateProductsReviews></PrivateRoutes>
             },
             {
                 path: '/dashboard/update/products/:id',
-                element: <UpdateProducts></UpdateProducts>
+                element: <AdminRoute><UpdateProducts></UpdateProducts></AdminRoute>
             },
             {
                 path: '/dashboard/all-users',
-                element: <AllUsers></AllUsers>
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
                 path: '/dashboard/all-users/manage',
-                element: <ManageUsers></ManageUsers>
+                element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
             },
             {
                 path: '/dashboard/users/profile',
-                element: <UserProfile></UserProfile>
+                element: <PrivateRoutes><UserProfile></UserProfile></PrivateRoutes>
             },
             {
                 path: '/dashboard/users/profile/update/:id',
-                element: <EditProfile></EditProfile>,
+                element: <PrivateRoutes><EditProfile></EditProfile></PrivateRoutes>,
                 loader: ({params}) => fetch(`http://localhost:5001/users/${params.id}`)
 
             },
             {
                 path: '/dashboard/manage-website/website-review',
-                element: <AllWebsiteReview></AllWebsiteReview>
+                element: <AdminRoute><AllWebsiteReview></AllWebsiteReview></AdminRoute>
             },
             {
                 path: '/dashboard/manage-website/contact-message',
-                element: <ManageContactMessage></ManageContactMessage>
+                element: <AdminRoute><ManageContactMessage></ManageContactMessage></AdminRoute>
             },
             {
                 path: '/dashboard/orders/all-orders',
-                element: <AllOrders></AllOrders>
+                element:<AdminRoute> <AllOrders></AllOrders></AdminRoute>
             },
             {
                 path: '/dashboard/orders/user-orders',
-                element: <UserOrders></UserOrders>
+                element: <PrivateRoutes><UserOrders></UserOrders></PrivateRoutes>
             },
             {
                 path: '/dashboard/orders/payments/:id',
-                element: <Payment></Payment>
+                element: <AdminRoute><Payment></Payment></AdminRoute>
             },
         ]
     }
