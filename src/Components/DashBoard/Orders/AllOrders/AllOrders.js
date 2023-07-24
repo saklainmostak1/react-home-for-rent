@@ -119,7 +119,14 @@ const AllOrders = () => {
                                                 {allOrders.adress}
                                             </td>
                                             <td>
-                                                {allOrders.adress}
+                                            {
+                                                allOrders.price && allOrders.paid &&
+                                                <span className='text-primary'>Paid</span>
+                                            }
+                                            {
+                                                allOrders.price && !allOrders.paid &&
+                                                <span className='text-red-500'>Not Paid</span>
+                                            }
                                             </td>
 
                                             <td>
