@@ -76,8 +76,7 @@ const UserOrders = () => {
                                     <th className="bg-white">Email</th>
                                     <th className="bg-white">Price</th>
                                     <th className="bg-white">Delivery Adress</th>
-                                    <th className="bg-white">Payment Status</th>
-                                    <th className="bg-white ">Options</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -124,49 +123,8 @@ const UserOrders = () => {
                                                 {allOrders.adress}
                                             </td>
                                            
-                                            <td>
-                                                {
-                                                    allOrders.price && !allOrders.paid &&
-                                                    <Link to={`/dashboard/orders/payments/${allOrders._id}`}>
-                                                        <button className='btn btn-accent btn-xs'>PAY</button>
-                                                    </Link>
-                                                }
+                                          
 
-                                                {
-                                                    allOrders.price && allOrders.paid &&
-                                                    <span className='text-primary'>Paid</span>
-                                                }
-                                            </td>
-
-                                            <td>
-                                                <div className='w-full'>
-
-                                                    {
-                                                        allOrders.price && allOrders.paid ?
-                                                            'Can not Delete After Payment'
-                                                            :
-                                                            <button
-                                                                onClick={() => handleDelete(allOrders._id)}
-                                                            >
-                                                                <label
-                                                                    className="w-8 h-8 bg-red-200 inline-block rounded-full text-center cursor-pointer group hover:bg-red-500 duration-300 mr-1"
-                                                                    htmlFor=""
-                                                                >
-                                                                    <p className=' mt-2 ml-2 text-red-500 group-hover:text-white duration-300'>
-                                                                        <HiTrash></HiTrash>
-                                                                    </p>
-
-                                                                </label>
-                                                            </button>
-
-                                                    }
-
-
-
-
-
-                                                </div>
-                                            </td>
 
 
 

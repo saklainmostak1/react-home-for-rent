@@ -32,7 +32,7 @@ import UserProfile from "../DashBoard/Users/UserProfile/UserProfile";
 import UpdateProductsReviews from "../DashBoard/ManageProductsReviews/UpdateProductsReviews";
 import EditProfile from "../DashBoard/Users/UserProfile/EditProfile";
 import AdminRoute from "./AdminRoute/AdminRoute";
-import SellerRoutes from "./SellerRoutes/SellerRoutes";
+import PaymentsProducts from "../DashBoard/Payments/PaymentsProducts";
 
 
 export const router = createBrowserRouter([
@@ -166,6 +166,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/orders/user-orders',
                 element: <PrivateRoutes><UserOrders></UserOrders></PrivateRoutes>
+            },
+            {
+                path: '/dashboard/orders/user-orders/payments',
+                element: <PrivateRoutes><PaymentsProducts></PaymentsProducts></PrivateRoutes>
             },
             {
                 path: '/dashboard/orders/payments/:id',

@@ -290,16 +290,12 @@ const DashBoardNav = () => {
                             <ul>
 
                                 <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
-                                    <Link to=''>
-                                        Paid Products
+                                    <Link to='/dashboard/orders/user-orders/payments'>
+                                        Payments Products
                                     </Link>
                                 </li>
 
-                                <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
-                                    <Link to=''>
-                                        Unpaid Products
-                                    </Link>
-                                </li>
+                              
 
                             </ul>
                         </div>
