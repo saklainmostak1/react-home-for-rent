@@ -1,33 +1,24 @@
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
-import { useQuery } from 'react-query';
-import { useParams } from 'react-router-dom';
-import CheckOutForm from './CheckOutForm';
+import { useLoaderData } from 'react-router-dom';
+import CheckoutForm from '../CheckOut/CheckoutForm';
+// import CheckoutForm from './CheckoutForm';
+
+
 
 
 
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
-
-console.log(stripePromise);
+console.log(stripePromise)
 
 const Payment = () => {
 
 
-    const { id } = useParams()
+    const payments = useLoaderData()
 
-
-    const { data: payments = [], isLoading, refetch
-    } = useQuery({
-        queryKey: ['payments'],
-        queryFn: async () => {
-            const res = await fetch(`http://localhost:5001/orders/${id}`)
-            const data = await res.json()
-            return data
-        }
-    })
-    console.log(payments);
+    console.log(payments)
 
 
     return (
@@ -39,8 +30,8 @@ const Payment = () => {
 
             <div className='w-96 my-12'>
                 <Elements stripe={stripePromise}>
-                    <CheckOutForm
-                        payments={payments}
+                    <CheckoutForm 
+                    payments={payments}
                     />
                 </Elements>
             </div>

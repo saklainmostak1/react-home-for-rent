@@ -197,8 +197,7 @@ const DashBoardNav = () => {
 
                         <div className="collapse ">
                             
-                           {
-                             isAdmin &&
+                         
                              <>
                              <input type="checkbox" className="peer" />
                              <div className="collapse-title flex justify-between w-[124%] hover:text-[#ff8084]">
@@ -209,20 +208,10 @@ const DashBoardNav = () => {
                          </div>
                              </>
 
-                           }
-                           {
-                             isBuyer &&
-                             <>
-                             <input type="checkbox" className="peer" />
-                             <div className="collapse-title flex justify-between w-[124%] hover:text-[#ff8084]">
-                             <span>
-                                 <i class="fa-solid fa-cart-shopping text-xs w-[20px]"></i> Orders
-                             </span>{" "}
-                             <i className="fa-solid fa-angle-right"></i>
-                         </div>
-                             </>
+                         
+                           
 
-                           }
+                         
                           
                             <div className="collapse-content ">
                                 <ul>
@@ -236,14 +225,15 @@ const DashBoardNav = () => {
                                     </Link>
                                 </li>
                                 }
-                                  {
-                                    isBuyer &&
+                                  
                                     <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
                                     <Link to='/dashboard/orders/user-orders'>
                                         My Orders
                                     </Link>
                                 </li>
-                                  }
+                                 
+                                   
+                                  
                                     {/* 
                             <li className=" w-[120%] p-0 hover:text-[#ff8084] collapse">
                                 <Link to=''>

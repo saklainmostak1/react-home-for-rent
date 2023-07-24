@@ -2,19 +2,21 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 
-const CheckOutForm = ({payments}) => {
+const CheckoutForm = ({ payments }) => {
 
-   
+
     const [cardError, setCardError] = useState('')
+    const [clientSecret, setClientSecret] = useState("")
+    const [processing, setProcessing] = useState(false)
     const [success, setSuccess] = useState('')
     const [transactionId, setTransactionId] = useState('')
-    const [clientSecret, setClientSecret] = useState('');
-    const [processing, setProcessing] = useState(false)
+
+
+    const { price, name, email, _id, productName, image } = payments
+    console.log(payments)
 
     const stripe = useStripe()
     const elements = useElements()
-    const { price, name, email, _id, productName, image } = payments
-
 
 
     useEffect(() => {
@@ -22,7 +24,7 @@ const CheckOutForm = ({payments}) => {
             method: "POST",
             headers: {
                 "content-Type": "application/json",
-                authorization: `bearer ${localStorage.getItem('accessToken')}`
+
             },
             body: JSON.stringify({ price }),
         })
@@ -30,32 +32,34 @@ const CheckOutForm = ({payments}) => {
             .then((data) => setClientSecret(data.clientSecret));
     }, [price]);
 
-    const handleSubmit = async (event) => {
-        event.preventDefault()
 
+
+    const handleSubmit = async (event) => {
+
+        event.preventDefault()
         if (!stripe || !elements) {
-            return
+            return;
         }
 
         const card = elements.getElement(CardElement)
         if (card === null) {
-            return
+            return;
         }
+
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
-            card
+            card,
         })
+
         if (error) {
             console.log(error);
             setCardError(error.message)
         }
         else {
-            setCardError('')
+            setCardError('');
         }
-
-
-        setSuccess('')
-        setProcessing(true)
+        setSuccess('');
+        setProcessing(true);
 
         const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
             clientSecret,
@@ -70,33 +74,29 @@ const CheckOutForm = ({payments}) => {
                 },
             },
         );
+
         if (confirmError) {
-            setCardError(confirmError.message);
-            return
+            setCardError(confirmError.message)
+            return;
         }
-
         if (paymentIntent.status === 'succeeded') {
-            // setSuccess('Payment Successfull')
-            // setTransactionId(paymentIntent.id)
-            // console.log('card info', card);
+            setSuccess('Payment SuccessFully')
+            setTransactionId(paymentIntent.id)
 
-            // console.log('paymentIntent', paymentIntent);
+            const payment = {
 
-
-                    const payment = {
-
-                        price,
-                        transactionId: paymentIntent.id,
-                        email,
-                        OrderId: _id,
-                        productName,
-                        image
+                price,
+                transactionId: paymentIntent.id,
+                email,
+                OrderId: _id,
+                productName,
+                image
             }
             fetch('http://localhost:5001/payments', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
-                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                   
                 },
                 body: JSON.stringify(payment)
             })
@@ -112,8 +112,10 @@ const CheckOutForm = ({payments}) => {
         }
         setProcessing(false)
     }
-  
+
+
     return (
+
         <>
             <form onSubmit={handleSubmit}>
                 <CardElement
@@ -132,19 +134,19 @@ const CheckOutForm = ({payments}) => {
                         },
                     }}
                 />
-                <button className='btn btn-primary mt-4 btn-sm' type="submit" disabled={!stripe  || processing}>
+                <button type="submit" className='btn btn-primary mt-4 btn-sm' disabled={!stripe || !clientSecret || processing}>
                     Pay
                 </button>
             </form>
-            <p className='text-red-600'>{cardError}</p>
+            <p className='text-red-500'>{cardError}</p>
             {
                 success && <div>
                     <p className='text-green-500'>{success}</p>
-                    <p>Your transactionId: <span className='font-bold'>{transactionId}</span></p>
+                    <p>Your TransactionId: <span className='font-bold'>{transactionId}</span></p>
                 </div>
             }
         </>
     );
 };
 
-export default CheckOutForm;
+export default CheckoutForm;
