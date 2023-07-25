@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { IoIosStar } from "react-icons/io";
+import { toast } from 'react-hot-toast';
+import { AuthContext } from '../../../Authentication/AuthProvider';
 
 const AllHomeDetails = () => {
+
+    const {user} = useContext(AuthContext)
 
 
     const { id } = useParams()
@@ -19,6 +23,67 @@ const AllHomeDetails = () => {
 
 
     console.log(homes);
+
+    const [cart, setCart] = useState([])
+    const handleAddToCart = data => {
+        console.log(data)
+
+        const newCart = [...cart, data]
+        setCart(newCart)
+
+
+        const addProducts = {
+            homes, email: user.email
+        }
+        fetch('http://localhost:5001/favourites', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(addProducts)
+
+        })
+            .then(Response => Response.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged === true) {
+
+                  
+                    toast.success('Sucessfully add')
+                }
+            })
+            .catch(error => console.error(error))
+      
+
+    }
+
+    console.log(cart, 'nayan')
+
+
+
+
+
+
+
+
+
+    // const handleRemove = products => {
+    //     console.log(products)
+    //     const remaining = cart.filter(prd => prd.id !== products.id)
+    //     setCart(remaining)
+    // }
+
+
+    // let total = 0;
+
+
+
+    // for (const product of cart) {
+    //     total = total + product.price
+
+
+
+    // }
 
 
     return (
@@ -50,11 +115,13 @@ const AllHomeDetails = () => {
 
                                 <button className='bg-[#1697DA] px-6 rounded-sm text-white font-semibold btn-sm'>Add Review</button>
                             </Link>
+
                         </div>
                     </div>
 
                 </div>
             </div>
+
             <div className='max-w-[1440px] mx-auto '>
                 <div class="mt-5">
                     <div class="card border-primary px-8">
@@ -70,6 +137,14 @@ const AllHomeDetails = () => {
                         <p>{homes.more_description}</p>
                         <br />
                         <p>{homes.additional_info}</p>
+                    </div>
+                    <div className='flex justify-center mb-10'>
+                        <Link to={``}>
+
+                            <button 
+                            onClick={() => handleAddToCart(homes)}
+                            className='bg-[#1697DA] px-6 rounded-sm text-white font-semibold btn-sm'>Add Favourites</button>
+                        </Link>
                     </div>
                 </div>
             </div>

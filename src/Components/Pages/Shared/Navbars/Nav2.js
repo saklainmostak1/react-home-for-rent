@@ -5,6 +5,7 @@ import { AuthContext } from '../../../Authentication/AuthProvider';
 import { toast } from 'react-hot-toast';
 import Loading from '../Loading/Loading';
 import { useQuery } from 'react-query';
+import { AiOutlineHeart } from "react-icons/ai";
 
 const Nav2 = () => {
 
@@ -118,6 +119,15 @@ const Nav2 = () => {
                   to='/about-us'
                 >
                   <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span className="md:ml-96 lg:ml-2">About Us</span>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                  to='/all-Home/favourites'
+                >
+                  <span className="md:ml-96 lg:ml-2 mr-2">favourites </span>
+                  <AiOutlineHeart></AiOutlineHeart>
                 </Link>
               </li>
 

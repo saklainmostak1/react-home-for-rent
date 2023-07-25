@@ -33,6 +33,7 @@ import UpdateProductsReviews from "../DashBoard/ManageProductsReviews/UpdateProd
 import EditProfile from "../DashBoard/Users/UserProfile/EditProfile";
 import AdminRoute from "./AdminRoute/AdminRoute";
 import PaymentsProducts from "../DashBoard/Payments/PaymentsProducts";
+import FavouritesList from "../Pages/Shared/FavouritesList/FavouritesList";
 
 
 export const router = createBrowserRouter([
@@ -84,6 +85,10 @@ export const router = createBrowserRouter([
             {
                 path: '/all-Home/reviews/:id',
                 element: <PrivateRoutes><HomeReviews></HomeReviews></PrivateRoutes>
+            },
+            {
+                path: '/all-Home/favourites',
+                element: <PrivateRoutes><FavouritesList></FavouritesList></PrivateRoutes>
             },
 
             {
