@@ -75,6 +75,7 @@ const FavouritesList = () => {
                                     <th className="bg-white ">Options</th>
                                 </tr>
                             </thead>
+                            
                             <tbody>
                                 {
                                     // loading ?
@@ -102,7 +103,7 @@ const FavouritesList = () => {
                                                 </div>
                                             </td>
                                             <td>
-                                                <p>{product.user}</p>
+                                                <p>{product.email}</p>
                                             </td>
                                             <td>
                                                 <p>{product.homes.type}</p>

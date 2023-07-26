@@ -2,6 +2,8 @@ import React from 'react';
 import { FaFacebook, FaTwitter, FaLinkedin, FaWhatsapp, FaInstagram, } from 'react-icons/fa';
 import { HiPhone } from "react-icons/hi2";
 import { IoIosAlarm, IoIosGlobe, IoIosArrowDown } from "react-icons/io";
+import { FaCartArrowDown, FaShoppingCart } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 const Nav1 = () => {
     return (
         <div className='container mx-auto  mt-4 mb-4 text-[#15396D] font-bold'>
@@ -26,7 +28,10 @@ const Nav1 = () => {
                     <div className='flex justify-between gap-2'>
                         <IoIosGlobe></IoIosGlobe>
                         <p className='mt-[-5px]'>English  </p>
+                        {/* <FaCartArrowDown></FaCartArrowDown>
+                        <FaShoppingCart></FaShoppingCart> */}
                         <IoIosArrowDown></IoIosArrowDown>
+                       
                     </div>
 
                 </div>
@@ -41,7 +46,7 @@ const Nav1 = () => {
                     <p className='mt-[-5px]'>Monday - Friday (8AM - 6PM CST)</p>
                 </div>
             </div>
-           
+
         </div>
     );
 };

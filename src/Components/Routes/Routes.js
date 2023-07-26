@@ -34,6 +34,7 @@ import EditProfile from "../DashBoard/Users/UserProfile/EditProfile";
 import AdminRoute from "./AdminRoute/AdminRoute";
 import PaymentsProducts from "../DashBoard/Payments/PaymentsProducts";
 import FavouritesList from "../Pages/Shared/FavouritesList/FavouritesList";
+import Cart from "../Pages/Home/Cart/Cart";
 
 
 export const router = createBrowserRouter([
@@ -89,6 +90,10 @@ export const router = createBrowserRouter([
             {
                 path: '/all-Home/favourites',
                 element: <PrivateRoutes><FavouritesList></FavouritesList></PrivateRoutes>
+            },
+            {
+                path: '/all-Home/cart',
+                element: <PrivateRoutes><Cart></Cart></PrivateRoutes>
             },
 
             {

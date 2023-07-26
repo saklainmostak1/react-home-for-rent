@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaBars, FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Authentication/AuthProvider';
@@ -6,14 +6,23 @@ import { toast } from 'react-hot-toast';
 import Loading from '../Loading/Loading';
 import { useQuery } from 'react-query';
 import { AiOutlineHeart } from "react-icons/ai";
+import { FaCartArrowDown, FaShoppingCart } from "react-icons/fa";
+import Cart from '../../Home/Cart/Cart';
 
 const Nav2 = () => {
 
 
-
-
-
   const { user, logOut } = useContext(AuthContext)
+  const [homes, setHomes] = useState([])
+
+  useEffect(() => {
+      fetch(`http://localhost:5001/cart?user=${user?.email}`)
+          .then(Response => Response.json())
+          .then(data => setHomes(data))
+  }, [homes])
+
+
+
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   console.log(user);
 
@@ -43,8 +52,13 @@ const Nav2 = () => {
       })
   }
 
+
+ 
+  
+
   return (
     <>
+ 
       <nav className="relative bg-[#15396D] flex flex-wrap items-center shadow-xl justify-between px-2 py-3  mb-3">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
@@ -54,6 +68,7 @@ const Nav2 = () => {
             >
               Home For Rent
             </Link>
+            
             <button
               className="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
               type="button"
@@ -97,6 +112,7 @@ const Nav2 = () => {
                   <span className="md:ml-96 lg:ml-2 ">Thank you</span>
                 </Link>
               </li> */}
+             
               <li className="nav-item">
                 <Link
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
@@ -148,7 +164,7 @@ const Nav2 = () => {
 
                     <li>
                       <button >
-                        <p className='lg:mt-[-10px]  md:ml-96 lg:ml-2 sm:mt-2 flex'>
+                        <p className='lg:mt-[-10px]  md:ml-[390px] sm:ml-1 lg:ml-2 sm:mt-2 flex'>
                           <div className="dropdown  lg:dropdown-end">
                             <label tabIndex={0} className="btn m-1"><FaUser></FaUser></label>
                             <ul tabIndex={0} className=" dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
@@ -169,6 +185,12 @@ const Nav2 = () => {
                         </p>
                       </button>
                     </li>
+                    <Link to='/all-Home/cart'>
+                            <div className="indicator lg:mt-[-2px] md:mt-3 lg:ml-2 md:ml-[395px] sm:mt-2 sm:ml-3">
+                                <span className="indicator-item badge badge-secondary">{homes.length}</span>
+                                <div className="grid w-10 h-10 bg-base-300 place-items-center"> <FaCartArrowDown></FaCartArrowDown></div>
+                            </div>
+                        </Link>
                   </>
 
 
@@ -204,6 +226,7 @@ const Nav2 = () => {
             </ul>
           </div>
         </div>
+
       </nav>
     </>
   );

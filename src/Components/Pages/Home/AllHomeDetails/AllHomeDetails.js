@@ -60,6 +60,42 @@ const AllHomeDetails = () => {
     console.log(cart, 'nayan')
 
 
+    const [addCart, setAddCart] = useState([])
+    const addToCart = data => {
+        console.log(data)
+
+        const newCarts = [...addCart, data]
+        setAddCart(newCarts)
+
+
+        const addProduct = {
+            homes, email: user.email
+        }
+        fetch('http://localhost:5001/cart', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(addProduct)
+
+        })
+            .then(Response => Response.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged === true) {
+
+                  
+                    toast.success('Sucessfully add')
+                }
+            })
+            .catch(error => console.error(error))
+      
+
+    }
+
+    console.log(cart, 'nayan')
+
+
 
 
 
@@ -138,12 +174,18 @@ const AllHomeDetails = () => {
                         <br />
                         <p>{homes.additional_info}</p>
                     </div>
-                    <div className='flex justify-center mb-10'>
+                    <div className='flex justify-center mb-10 gap-3'>
                         <Link to={``}>
 
                             <button 
                             onClick={() => handleAddToCart(homes)}
                             className='bg-[#1697DA] px-6 rounded-sm text-white font-semibold btn-sm'>Add Favourites</button>
+                        </Link>
+                        <Link to={``}>
+
+                            <button 
+                            onClick={() => addToCart(homes)}
+                            className='bg-[#1697DA] px-6 rounded-sm text-white font-semibold btn-sm'>Add To Cart</button>
                         </Link>
                     </div>
                 </div>
