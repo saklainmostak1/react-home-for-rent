@@ -186,7 +186,7 @@ const Nav2 = () => {
                       </button>
                     </li>
                     <Link to='/all-Home/cart'>
-                            <div className="indicator lg:mt-[-2px] md:mt-3 lg:ml-2 md:ml-[395px] sm:mt-2 sm:ml-3">
+                            <div className="indicator lg:mt-[-2px] md:mt-3 lg:ml-2 md:ml-[395px]  ml-2 mt-2">
                                 <span className="indicator-item badge badge-secondary">{homes.length}</span>
                                 <div className="grid w-10 h-10 bg-base-300 place-items-center"> <FaCartArrowDown></FaCartArrowDown></div>
                             </div>
