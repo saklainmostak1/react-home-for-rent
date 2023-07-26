@@ -43,6 +43,13 @@ const FavouritesList = () => {
         }
     }
 
+    const [loading, setLoading] = useState(false)
+    useEffect(() => {
+      setLoading(true)
+      setTimeout(() => {
+        setLoading(false)
+      }, 1000)
+    }, [])
 
 
 
@@ -78,10 +85,11 @@ const FavouritesList = () => {
                             
                             <tbody>
                                 {
-                                    // loading ?
-
-                                    //   <button className="btn loading m-10 ">loading</button>
-                                    //   :
+                                      
+                                        loading ?
+    
+                                          <button className="btn loading m-10 ">loading</button>
+                                          :
                                     favourites?.map((product, i) =>
 
                                         <tr>

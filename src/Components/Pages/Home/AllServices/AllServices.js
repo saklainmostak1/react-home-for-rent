@@ -28,12 +28,25 @@ const AllServices = () => {
     const showMoreProducts = () => {
         setVisible((preValue) => preValue + 3)
     }
+
+    const [loading, setLoading] = useState(false)
+    useEffect(() => {
+      setLoading(true)
+      setTimeout(() => {
+        setLoading(false)
+      }, 1000)
+    }, [])
+
+
     return (
         <div>
 
             <div className=''>
 
                 {
+                      loading ? 
+                      <button className="btn loading m-10 ">loading</button>
+                      :
                     homes.slice(0, visible).map(home =>
 
                         <div className='max-w-[1300px] mx-auto  '>

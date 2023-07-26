@@ -96,33 +96,23 @@ const AllHomeDetails = () => {
     console.log(cart, 'nayan')
 
 
+    const [loading, setLoading] = useState(false)
+    useEffect(() => {
+      setLoading(true)
+      setTimeout(() => {
+        setLoading(false)
+      }, 1000)
+    }, [])
 
-
-
-
-
-
-
-    // const handleRemove = products => {
-    //     console.log(products)
-    //     const remaining = cart.filter(prd => prd.id !== products.id)
-    //     setCart(remaining)
-    // }
-
-
-    // let total = 0;
-
-
-
-    // for (const product of cart) {
-    //     total = total + product.price
-
-
-
-    // }
 
 
     return (
+        <div>
+            {
+                 loading ? 
+                 <button className="btn loading m-10 ">loading</button>
+                 :
+
         <div>
             <div className='max-w-[1440px] mx-auto  '>
                 <div className='lg:flex md:flex  gap-10 p-8 lg:p-10 md:px-10'>
@@ -190,6 +180,8 @@ const AllHomeDetails = () => {
                     </div>
                 </div>
             </div>
+        </div>
+            }
         </div>
 
     );

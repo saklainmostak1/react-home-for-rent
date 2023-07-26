@@ -13,6 +13,13 @@ const AllHome = () => {
     }
 
     
+    const [loading, setLoading] = useState(false)
+    useEffect(() => {
+      setLoading(true)
+      setTimeout(() => {
+        setLoading(false)
+      }, 1000)
+    }, [])
 
 
 
@@ -21,6 +28,10 @@ const AllHome = () => {
             <div className='mt-5'>
 
                 {
+                    loading ? 
+                    <button className="btn loading m-10 ">loading</button>
+                    :
+
                     allHome.slice(0, visible).map(home =>
 
                         <div className='max-w-[1300px] mx-auto  '>
