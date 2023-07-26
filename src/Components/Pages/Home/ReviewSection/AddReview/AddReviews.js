@@ -29,7 +29,7 @@ const AddReviews = ({refetch}) => {
         const addReview = {
             name, email, photo, rating, message
         }
-        fetch('http://localhost:5001/webSite-review', {
+        fetch('https://home-for-rent-server.vercel.app/webSite-review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

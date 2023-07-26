@@ -12,7 +12,7 @@ const ManageContactMessage = () => {
     } = useQuery({
         queryKey: ['contactMessage'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5001/contact-message')
+            const res = await fetch('https://home-for-rent-server.vercel.app/contact-message')
             const data = await res.json()
             return data
         }
@@ -23,7 +23,7 @@ const ManageContactMessage = () => {
         const proceed = window.confirm('Are You Sure delete')
 
         if (proceed) {
-            fetch(`http://localhost:5001/contact-message/${id}`, {
+            fetch(`https://home-for-rent-server.vercel.app/contact-message/${id}`, {
                 method: "DELETE",
 
             })

@@ -16,7 +16,7 @@ const Nav2 = () => {
   const [homes, setHomes] = useState([])
 
   useEffect(() => {
-      fetch(`http://localhost:5001/cart?user=${user?.email}`)
+      fetch(`https://home-for-rent-server.vercel.app/cart?user=${user?.email}`)
           .then(Response => Response.json())
           .then(data => setHomes(data))
   }, [homes])
@@ -30,7 +30,7 @@ const Nav2 = () => {
   } = useQuery({
     queryKey: ['myProfile'],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5001/user?email=${user?.email}`)
+      const res = await fetch(`https://home-for-rent-server.vercel.app/user?email=${user?.email}`)
       const data = await res.json()
       return data
 

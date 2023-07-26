@@ -10,7 +10,7 @@ const ShowReview = () => {
     } = useQuery({
         queryKey: ['webSiteReview'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5001/webSite-review')
+            const res = await fetch('https://home-for-rent-server.vercel.app/webSite-review')
             const data = await res.json()
             return data
         }

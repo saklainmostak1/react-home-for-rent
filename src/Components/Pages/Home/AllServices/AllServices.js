@@ -14,7 +14,7 @@ const AllServices = () => {
     const [homes, setHomes] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5001/allHome`)
+        fetch(`https://home-for-rent-server.vercel.app/allHome`)
             .then(Response => Response.json())
             .then(data => setHomes(data))
     }, [])

@@ -28,7 +28,7 @@ const Register = () => {
         const users = { name, email, role, photo }
         console.log(name, email, password, photo);
 
-        fetch('http://localhost:5001/users', {
+        fetch('https://home-for-rent-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

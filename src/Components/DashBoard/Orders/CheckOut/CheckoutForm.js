@@ -20,7 +20,7 @@ const CheckoutForm = ({ payments }) => {
 
 
     useEffect(() => {
-        fetch("http://localhost:5001/create-payment-intent", {
+        fetch("https://home-for-rent-server.vercel.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "content-Type": "application/json",
@@ -92,7 +92,7 @@ const CheckoutForm = ({ payments }) => {
                 productName,
                 image
             }
-            fetch('http://localhost:5001/payments', {
+            fetch('https://home-for-rent-server.vercel.app/payments', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',

@@ -16,7 +16,7 @@ const PaymentsProducts = () => {
     } = useQuery({
         queryKey: ['userOrders'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5001/order?email=${user?.email}`)
+            const res = await fetch(`https://home-for-rent-server.vercel.app/order?email=${user?.email}`)
             const data = await res.json()
             return data
         }
@@ -27,7 +27,7 @@ const PaymentsProducts = () => {
         const proceed = window.confirm('Are You Sure delete')
 
         if (proceed) {
-            fetch(`http://localhost:5001/order/${id}`, {
+            fetch(`https://home-for-rent-server.vercel.app/order/${id}`, {
                 method: "DELETE",
 
             })

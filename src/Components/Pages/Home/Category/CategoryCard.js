@@ -17,7 +17,7 @@ const CategoryCard = ({ categorie }) => {
     const [home, setHome]  = useState([])
 
     useEffect(() => {
-    fetch(`http://localhost:5001/category/${id}`)
+    fetch(`https://home-for-rent-server.vercel.app/category/${id}`)
         .then(Response => Response.json())
         .then(data => setHome(data))
 }, [])

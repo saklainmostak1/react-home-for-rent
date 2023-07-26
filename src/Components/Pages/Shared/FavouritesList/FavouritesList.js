@@ -17,7 +17,7 @@ const FavouritesList = () => {
     } = useQuery({
         queryKey: ['favourites'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5001/favourites?user=${user.email}`)
+            const res = await fetch(`https://home-for-rent-server.vercel.app/favourites?user=${user.email}`)
             const data = await res.json()
             return data
         }
@@ -28,7 +28,7 @@ const FavouritesList = () => {
         const proceed = window.confirm('Are You Sure delete')
 
         if (proceed) {
-            fetch(`http://localhost:5001/home-favourites/${id}`, {
+            fetch(`https://home-for-rent-server.vercel.app/home-favourites/${id}`, {
                 method: "DELETE",
 
             })

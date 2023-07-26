@@ -9,7 +9,7 @@ const AllOrders = () => {
     } = useQuery({
         queryKey: ['allOrders'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5001/orders`)
+            const res = await fetch(`https://home-for-rent-server.vercel.app/orders`)
             const data = await res.json()
             return data
         }

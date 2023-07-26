@@ -99,7 +99,7 @@ export const router = createBrowserRouter([
             {
                 path: '/allHome/:id',
                 element: <AllHome></AllHome>,
-                loader: ({ params }) => fetch(`http://localhost:5001/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://home-for-rent-server.vercel.app/category/${params.id}`)
 
             },
 
@@ -158,7 +158,7 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/users/profile/update/:id',
                 element: <PrivateRoutes><EditProfile></EditProfile></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5001/users/${params.id}`)
+                loader: ({params}) => fetch(`https://home-for-rent-server.vercel.app/users/${params.id}`)
 
             },
             {
@@ -184,7 +184,7 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/orders/payments/:id',
                 element: <PrivateRoutes><Payment></Payment></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5001/orders/${params.id}`)
+                loader: ({params}) => fetch(`https://home-for-rent-server.vercel.app/orders/${params.id}`)
             },
         ]
     }

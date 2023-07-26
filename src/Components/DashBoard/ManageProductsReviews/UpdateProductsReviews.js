@@ -12,7 +12,7 @@ const UpdateProductsReviews = () => {
     const [homeReviews, setHomeReviews] = useState([])
 
   useEffect(() => {
-    fetch(`http://localhost:5001/homeReviews/${id}`)
+    fetch(`https://home-for-rent-server.vercel.app/homeReviews/${id}`)
       .then(Response => Response.json())
       .then(data => setHomeReviews(data))
   }, [id])
@@ -22,7 +22,7 @@ console.log(homeReviews, 'nayan')
 
 const handleEditHome = event => {
     event.preventDefault()
-    fetch(`http://localhost:5001/allHome-review-update/${homeReviews._id}`, {
+    fetch(`https://home-for-rent-server.vercel.app/allHome-review-update/${homeReviews._id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json'

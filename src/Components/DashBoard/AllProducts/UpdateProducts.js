@@ -9,7 +9,7 @@ const UpdateProducts = () => {
   const [home, setHome] = useState([])
 
   useEffect(() => {
-    fetch(`http://localhost:5001/allHome/${id}`)
+    fetch(`https://home-for-rent-server.vercel.app/allHome/${id}`)
       .then(Response => Response.json())
       .then(data => setHome(data))
   }, [id])
@@ -19,7 +19,7 @@ const UpdateProducts = () => {
 
 
   useEffect(() => {
-    fetch(`http://localhost:5001/category`)
+    fetch(`https://home-for-rent-server.vercel.app/category`)
       .then(Response => Response.json())
       .then(data => setCategories(data))
   }, [])
@@ -31,7 +31,7 @@ const UpdateProducts = () => {
 
   const handleEditHome = event => {
     event.preventDefault()
-    fetch(`http://localhost:5001/allHome-update/${home._id}`, {
+    fetch(`https://home-for-rent-server.vercel.app/allHome-update/${home._id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json'

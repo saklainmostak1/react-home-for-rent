@@ -11,7 +11,7 @@ const ManageUsers = () => {
     } = useQuery({
         queryKey: ['manageUsers'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5001/users')
+            const res = await fetch('https://home-for-rent-server.vercel.app/users')
             const data = await res.json()
             return data
         }
@@ -22,7 +22,7 @@ const ManageUsers = () => {
 
 
     const handleMakeAdmin = id => {
-        fetch(`http://localhost:5001/users/admin/${id}`, {
+        fetch(`https://home-for-rent-server.vercel.app/users/admin/${id}`, {
             method: "PUT"
         })
         .then(Response => Response.json())
@@ -39,7 +39,7 @@ const ManageUsers = () => {
         const proceed = window.confirm('Are You Sure delete')
             
            if(proceed){
-            fetch(`http://localhost:5001/users/${id}`, {
+            fetch(`https://home-for-rent-server.vercel.app/users/${id}`, {
                 method: "DELETE",
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`

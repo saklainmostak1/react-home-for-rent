@@ -16,7 +16,7 @@ const AllHomeDetails = () => {
     const [homes, setHomes] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5001/allHome/${id}`)
+        fetch(`https://home-for-rent-server.vercel.app/allHome/${id}`)
             .then(Response => Response.json())
             .then(data => setHomes(data))
     }, [id])
@@ -35,7 +35,7 @@ const AllHomeDetails = () => {
         const addProducts = {
             homes, email: user.email
         }
-        fetch('http://localhost:5001/favourites', {
+        fetch('https://home-for-rent-server.vercel.app/favourites', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -71,7 +71,7 @@ const AllHomeDetails = () => {
         const addProduct = {
             homes, email: user.email
         }
-        fetch('http://localhost:5001/cart', {
+        fetch('https://home-for-rent-server.vercel.app/cart', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -15,7 +15,7 @@ const AllProducts = () => {
     } = useQuery({
         queryKey: ['allHome'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5001/allHome')
+            const res = await fetch('https://home-for-rent-server.vercel.app/allHome')
             const data = await res.json()
             return data
         }
@@ -26,7 +26,7 @@ const AllProducts = () => {
         const proceed = window.confirm('Are You Sure delete')
             
            if(proceed){
-            fetch(`http://localhost:5001/allHomes/${id}`, {
+            fetch(`https://home-for-rent-server.vercel.app/allHomes/${id}`, {
                 method: "DELETE",
                
             })

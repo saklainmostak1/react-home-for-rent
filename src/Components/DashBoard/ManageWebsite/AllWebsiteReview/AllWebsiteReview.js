@@ -14,7 +14,7 @@ const AllWebsiteReview = () => {
     } = useQuery({
         queryKey: ['allWebReview'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5001/website-review')
+            const res = await fetch('https://home-for-rent-server.vercel.app/website-review')
             const data = await res.json()
             return data
         }
@@ -25,7 +25,7 @@ const AllWebsiteReview = () => {
         const proceed = window.confirm('Are You Sure delete')
 
         if (proceed) {
-            fetch(`http://localhost:5001/website-review/${id}`, {
+            fetch(`https://home-for-rent-server.vercel.app/website-review/${id}`, {
                 method: "DELETE",
 
             })

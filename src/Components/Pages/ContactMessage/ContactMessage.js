@@ -27,7 +27,7 @@ const ContactMessage = () => {
         const addReview = {
             name, email, message
         }
-        fetch('http://localhost:5001/contact-message', {
+        fetch('https://home-for-rent-server.vercel.app/contact-message', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

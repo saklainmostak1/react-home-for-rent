@@ -16,7 +16,7 @@ const Cart = () => {
     } = useQuery({
         queryKey: ['favourites'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5001/cart?user=${user.email}`)
+            const res = await fetch(`https://home-for-rent-server.vercel.app/cart?user=${user.email}`)
             const data = await res.json()
             return data
         }
@@ -27,7 +27,7 @@ const Cart = () => {
         const proceed = window.confirm('Are You Sure delete')
 
         if (proceed) {
-            fetch(`http://localhost:5001/cart/${id}`, {
+            fetch(`https://home-for-rent-server.vercel.app/cart/${id}`, {
                 method: "DELETE",
 
             })

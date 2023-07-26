@@ -15,7 +15,7 @@ const HomeReviews = () => {
     const [homes, setHomes] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5001/allHome/${id}`)
+        fetch(`https://home-for-rent-server.vercel.app/allHome/${id}`)
             .then(Response => Response.json())
             .then(data => setHomes(data))
     }, [id])
@@ -29,7 +29,7 @@ const HomeReviews = () => {
     } = useQuery({
         queryKey: ['homeReview'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5001/home-reviews?products=${id}`)
+            const res = await fetch(`https://home-for-rent-server.vercel.app/home-reviews?products=${id}`)
             const data = await res.json()
             return data
         }
@@ -57,7 +57,7 @@ const HomeReviews = () => {
         const addReview = {
             products: id, name, email, rating, message, productName: productsName, photo
         }
-        fetch('http://localhost:5001/home-review', {
+        fetch('https://home-for-rent-server.vercel.app/home-review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

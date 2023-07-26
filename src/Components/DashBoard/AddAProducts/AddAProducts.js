@@ -9,7 +9,7 @@ const AddAProducts = () => {
     } = useQuery({
         queryKey: ['categories'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5001/category')
+            const res = await fetch('https://home-for-rent-server.vercel.app/category')
             const data = await res.json()
             return data
         }
@@ -38,7 +38,7 @@ const AddAProducts = () => {
         const addProducts = {
             name, category_id: category, type, image, price, posted_date: date, validation, location, more_description: moredescription, additional_info: additionalInfo, description
         }
-        fetch('http://localhost:5001/allHome', {
+        fetch('https://home-for-rent-server.vercel.app/allHome', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

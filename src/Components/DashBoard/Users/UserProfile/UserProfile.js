@@ -16,7 +16,7 @@ const UserProfile = () => {
     } = useQuery({
         queryKey: ['usersProfile'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5001/user?email=${user.email}`)
+            const res = await fetch(`https://home-for-rent-server.vercel.app/user?email=${user.email}`)
             const data = await res.json()
             return data
         }
@@ -29,7 +29,7 @@ const UserProfile = () => {
 
     // const handleEditHome = event => {
     //     event.preventDefault()
-    //     fetch(`http://localhost:5001/users/${editProfile._id}`, {
+    //     fetch(`https://home-for-rent-server.vercel.app/users/${editProfile._id}`, {
     //         method: 'PUT',
     //         headers: {
     //             'content-type': 'application/json'

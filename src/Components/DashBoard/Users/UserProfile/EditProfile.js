@@ -12,7 +12,7 @@ const EditProfile = () => {
     const [editProfile, setEditProfile] = useState(updateProfile)
     const handleEditHome = event => {
         event.preventDefault()
-        fetch(`http://localhost:5001/users/${editProfile._id}`, {
+        fetch(`https://home-for-rent-server.vercel.app/users/${editProfile._id}`, {
           method: 'PUT',
           headers: {
             'content-type': 'application/json'

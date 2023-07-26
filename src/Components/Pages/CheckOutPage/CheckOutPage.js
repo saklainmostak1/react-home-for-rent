@@ -15,7 +15,7 @@ const CheckOutPage = () => {
     // const [homes, setHomes] = useState([])
 
     // useEffect(() => {
-    //     fetch(`http://localhost:5001/allHome/${id}`)
+    //     fetch(`https://home-for-rent-server.vercel.app/allHome/${id}`)
     //         .then(Response => Response.json())
     //         .then(data => setHomes(data))
     // }, [id])
@@ -29,7 +29,7 @@ const navigate = useNavigate()
     } = useQuery({
         queryKey: ['useres'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5001/allHome/${id}`)
+            const res = await fetch(`https://home-for-rent-server.vercel.app/allHome/${id}`)
             const data = await res.json()
             return data
         }
@@ -62,7 +62,7 @@ const navigate = useNavigate()
             adress,
 
         }
-        fetch('http://localhost:5001/orders', {
+        fetch('https://home-for-rent-server.vercel.app/orders', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

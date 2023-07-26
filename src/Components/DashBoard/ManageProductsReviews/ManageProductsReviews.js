@@ -14,7 +14,7 @@ const ManageProductsReviews = () => {
     } = useQuery({
         queryKey: ['allProductsReviews'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5001/home-review?email=${user?.email}`)
+            const res = await fetch(`https://home-for-rent-server.vercel.app/home-review?email=${user?.email}`)
             const data = await res.json()
             return data
         }
@@ -41,7 +41,7 @@ const ManageProductsReviews = () => {
         const proceed = window.confirm('Are You Sure delete')
 
         if (proceed) {
-            fetch(`http://localhost:5001/home-reviews/${id}`, {
+            fetch(`https://home-for-rent-server.vercel.app/home-reviews/${id}`, {
                 method: "DELETE",
 
             })
