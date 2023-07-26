@@ -40,7 +40,7 @@ const EditProfile = () => {
 
 
     return (
-        <div className='w-[50%] mx-auto'>
+        <div className='mx-auto'>
         <div className="mt-8 bg-white p-7 rounded-xl ">
             <div className="border-b-2">
                 <h2 className="font-medium text-xl mb-3 ">Edit Profile From Here</h2>
